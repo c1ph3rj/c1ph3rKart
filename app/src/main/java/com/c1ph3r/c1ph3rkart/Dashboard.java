@@ -1,6 +1,8 @@
 package com.c1ph3r.c1ph3rkart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Bitmap;
@@ -16,6 +18,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.c1ph3r.c1ph3rkart.Controller.ProductListAdapter;
 import com.c1ph3r.c1ph3rkart.Model.ApplicationData;
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
 import com.google.gson.Gson;
@@ -45,7 +48,11 @@ public class Dashboard extends AppCompatActivity {
                         String output = String.valueOf(response);
                         ApplicationData applicationData = gson.fromJson(output, ApplicationData.class);
 //                      Glide.with(this).load(String.valueOf(applicationData.getProducts().get(1).getThumbnail())).into(image);
-                        ArrayList<ProductList> productLists = applicationData.getProducts().
+                        ArrayList<ProductList> productLists = new ArrayList<>(applicationData.getProducts());
+                        ProductListAdapter adapter = new ProductListAdapter(this,productLists );
+                        productListViewer.setAdapter(adapter);
+                        productListViewer.setLayoutManager(new LinearLayoutManager(this));
+                        System.out.println(productLists.get(1).getBrand());;
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
