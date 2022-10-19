@@ -10,42 +10,42 @@
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_width="@dimen/splashScreenDimen"
+        android:layout_height="@dimen/splashScreenDimen"
+        android:layout_marginEnd="@dimen/splashScreenAnimMarginEnd"
+        android:layout_marginBottom="@dimen/marginSplashScreenAnimBottom"
+        app:layout_constraintBottom_toTopOf="@+id/headingAtSplashScreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading_anime" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/headingAtSplashScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="220dp"
         android:fontFamily="@font/josefin_sans_bold"
-        android:text="C1PH3R Kart"
+        android:text="@string/headingAtSplashScreen"
         android:textColor="@color/color1"
-        android:textSize="28sp"
+        android:textSize="@dimen/headingTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textBelowHeadingSplashScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/josefin_sans_medium"
-        android:text=" Get What you see 😉"
-        android:textSize="18sp"
+        android:text="@string/textBelowHeadingSplashScreen"
+        android:textSize="@dimen/normalTextSize"
         android:textColor="@color/color1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/headingAtSplashScreen"
         app:layout_constraintVertical_bias="0.056" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

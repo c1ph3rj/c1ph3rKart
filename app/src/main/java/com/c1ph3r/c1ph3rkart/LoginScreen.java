@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.c1ph3r.c1ph3rkart.Controller.AuthController;
+import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
 
 public class LoginScreen extends AppCompatActivity {
     TextInputEditText userName, password;
     AuthController verifyUser;
+    UserDataBaseHelper userDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +29,19 @@ public class LoginScreen extends AppCompatActivity {
 
 
     public void onClickLoginBtn(View view) {
-        int result = verifyUser.userLoginVerification(String.valueOf(userName.getText()),String.valueOf(password.getText()));
+        userDB = new UserDataBaseHelper(this);
+        int result = verifyUser.userLoginVerification(String.valueOf(userName.getText()),String.valueOf(password.getText()),userDB);
         switch (result){
             case 1:
-                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "userName or password Incorrect", Toast.LENGTH_SHORT).show();
                 break;
+            case 2:
+                Toast.makeText(this, "Password incorrect", Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Intent intent = new Intent(this, ListOfProducts.class);
+                startActivity(intent);
+                Toast.makeText(this, "Welcome " + userName.getText() , Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -37,5 +50,8 @@ public class LoginScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onBackPressed(){
+
+    }
 
 }

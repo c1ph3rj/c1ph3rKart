@@ -15,4 +15,15 @@
     <dimen name="btnWidth">100dp</dimen>
     <dimen name="diwaliWishDimen">213dp</dimen>
     <dimen name="marginTopWIsh">92dp</dimen>
+    <dimen name="splashScreenDimen">200dp</dimen>
+    <dimen name="splashScreenAnimMarginEnd">80dp</dimen>
+    <dimen name="marginSplashScreenAnimBottom">48dp</dimen>
+    <dimen name="productNameList">200dp</dimen>
+    <dimen name="productListMarginTop">16dp</dimen>
+    <dimen name="margin24dp">24dp</dimen>
+    <dimen name="elevationProductItem">6dp</dimen>
+    <dimen name="width380dp">380dp</dimen>
+    <dimen name="height100dp">100dp</dimen>
+    <dimen name="value80dp">80dp</dimen>
+    <dimen name="margin8dp">8dp</dimen>
 </resources>

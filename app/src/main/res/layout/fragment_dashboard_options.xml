@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/color4"
+    android:layout_height="match_parent"
+    tools:context=".DashboardOptions">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:shadowColor="@color/white"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginTop15dp"
+        android:layout_marginTop="@dimen/marginTop15dp"
+        android:fontFamily="@font/aclonica_regular"
+        android:text="@string/app_name"
+        android:textColor="@color/color1"
+        android:textSize="@dimen/headingTextSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

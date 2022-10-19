@@ -2,32 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:elevation="8dp"
     android:gravity="center"
-    android:padding="5dp"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="18dp"
+        app:cardCornerRadius="@dimen/radiusTextField"
+        android:elevation="@dimen/elevationProductItem"
         android:id="@+id/cardViewItem"
+        android:layout_margin="@dimen/margin8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="380dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/width380dp"
+            android:layout_height="@dimen/height100dp"
             android:background="@color/color1"
             >
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/thumbnailImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="@dimen/value80dp"
+                android:layout_height="@dimen/value80dp"
+                android:layout_marginStart="@dimen/marginTop15dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:background="@drawable/shape_of_image"
@@ -37,11 +37,11 @@
 
             <TextView
                 android:id="@+id/productName"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/productNameList"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="ProductName"
-                android:textSize="18sp"
+                android:layout_marginStart="@dimen/productListMarginTop"
+                android:text="@string/productNameListText"
+                android:textSize="@dimen/normalTextSize"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/thumbnailImage"
@@ -52,8 +52,8 @@
                 android:id="@+id/ratings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:text="Ratings"
+                android:layout_marginStart="@dimen/margin24dp"
+                android:text="@string/productListRatingText"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/thumbnailImage"
@@ -64,7 +64,7 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price"
+                android:text="@string/productListPriceText"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">c1ph3rKart</string>
+    <string name="app_name">CipherKart</string>
     <string name="title_activity_main2">MainActivity2</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -21,4 +21,12 @@
     <string name="username_hint">UserName</string>
     <string name="please_register_below_text">Please register below:</string>
     <string name="submit_text">Submit</string>
+    <string name="e_mail_hint">E-Mail</string>
+    <string name="headingAtSplashScreen">C1PH3R Kart</string>
+    <string name="textBelowHeadingSplashScreen">Get What you see 😉</string>
+    <string name="productNameListText">ProductName</string>
+    <string name="productListRatingText">Ratings</string>
+    <string name="productListPriceText">Price</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

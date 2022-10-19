@@ -96,7 +96,6 @@
                 android:layout_height="@dimen/textFieldHeight"
                 android:hint="@string/passwordHintText"
                 android:inputType="textPassword"
-                android:maxLength="4"
                 android:onClick="OnClickPasswordLayout"
                 android:textColor="@color/color3"
                 android:textSize="@dimen/normalTextSize" />
@@ -143,7 +142,7 @@
         app:layout_constraintVertical_bias="0.507"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/happy_diwali" />
+        app:lottie_rawRes="@raw/happy_diwali"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/newUserBtn"

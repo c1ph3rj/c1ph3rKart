@@ -18,10 +18,10 @@
         android:textSize="@dimen/headingTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.286"
+        app:layout_constraintHorizontal_bias="0.391"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.199" />
 
     <LinearLayout
         android:layout_width="@dimen/CommonWidth"
@@ -34,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newUserHeading"
-        app:layout_constraintVertical_bias="0.053">
+        app:layout_constraintVertical_bias="0.262">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userNameLayoutR"
@@ -67,6 +67,36 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayoutR"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/ic_baseline_email_24"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/eMailFieldR"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="@string/e_mail_hint"
+                android:inputType="textEmailAddress"
+                android:maxLength="28"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordLayoutR"
@@ -93,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/textFieldHeight"
                 android:hint="@string/password_hint"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:textColor="@color/color4"
                 android:textSize="@dimen/normalTextSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -118,23 +148,22 @@
             app:startIconTint="@color/color4">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reEnterPasswordField"
+                android:id="@+id/reEnterPasswordFieldR"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/textFieldHeight"
                 android:hint="@string/confirm_password_hint"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:textColor="@color/color4"
                 android:textSize="@dimen/normalTextSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/accountNumberLayoutR"
+            android:id="@+id/phoneNumberLayoutR"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="@dimen/textFieldWidth"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTop10dp"
             android:textColorHint="@color/color4"
-            app:startIconDrawable="@drawable/ic_baseline_phone_24"
             app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
             app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
             app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
@@ -144,15 +173,16 @@
             app:endIconMode="clear_text"
             app:endIconTint="@color/color4"
             app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/ic_baseline_phone_24"
             app:startIconTint="@color/color4">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/accountNumberR"
+                android:id="@+id/phoneNumberR"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/textFieldHeight"
                 android:hint="@string/phone_number_string"
                 android:inputType="phone"
-                android:maxLength="8"
+                android:maxLength="10"
                 android:textColor="@color/color4"
                 android:textSize="@dimen/normalTextSize" />
 
