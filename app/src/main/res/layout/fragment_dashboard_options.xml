@@ -3,25 +3,117 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/color4"
     android:layout_height="match_parent"
-    tools:context=".DashboardOptions">
+    android:background="@color/white"
+    tools:context=".DashboardOptions"
+    android:layout_gravity="center"
+    tools:layout_editor_absoluteX="447dp"
+    tools:layout_editor_absoluteY="25dp">
 
 
     <TextView
-        android:id="@+id/textView"
-        android:shadowColor="@color/white"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="1"
+        android:id="@+id/headingAtDashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginTop15dp"
         android:layout_marginTop="@dimen/marginTop15dp"
         android:fontFamily="@font/aclonica_regular"
+        android:shadowColor="@color/white"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
         android:text="@string/app_name"
-        android:textColor="@color/color1"
+        android:textColor="@color/color4"
         android:textSize="@dimen/headingTextSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/categoriesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/categories_string"
+        android:textColor="@color/color2"
+        android:textSize="@dimen/normalTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingAtDashboard" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding12dp"
+        app:columnCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingAtDashboard"
+        app:layout_constraintVertical_bias="0.832"
+        tools:ignore="RtlSymmetry">
+
+        <Button
+            android:id="@+id/smartPhoneBtn"
+            android:layout_width="@dimen/width100dp"
+            android:layout_height="@dimen/height70dp"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:text="@string/smart_nPhonesCategoriesText"
+            android:textSize="@dimen/smallTextSize"
+            app:layout_column="0"
+            app:layout_gravity="center"
+            app:layout_row="0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/laptopBtn"
+            android:layout_width="110dp"
+            android:layout_height="@dimen/height70dp"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:text="@string/laptopCategoriesText"
+            android:textSize="@dimen/smallTextSize"
+            app:layout_column="1"
+            app:layout_gravity="center"
+            app:layout_row="0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragrancesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height70dp"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:text="@string/fragrancesCategoriesText"
+            android:textSize="@dimen/smallTextSize"
+            app:layout_gravity="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/skinCareBtn"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/height70dp"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:text="@string/skin_CareCategoriesText"
+            android:textSize="@dimen/smallTextSize"
+            app:layout_gravity="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/groceriesBtn"
+            android:layout_width="110dp"
+            android:layout_height="@dimen/height70dp"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:text="@string/groceriesCategoriesText"
+            android:textSize="@dimen/smallTextSize"
+            app:layout_gravity="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/homeDecorationsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height70dp"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:text="@string/home_DecorationCategoriesText"
+            android:textSize="@dimen/smallTextSize"
+            app:layout_gravity="center" />
+    </androidx.gridlayout.widget.GridLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

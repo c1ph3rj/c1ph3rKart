@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:id="@+id/dashboard"
     android:layout_height="match_parent"
-    tools:context=".ListOfProducts">
+    tools:context=".Dashboard">
 
 
    

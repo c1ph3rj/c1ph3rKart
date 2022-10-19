@@ -11,8 +11,6 @@ import com.c1ph3r.c1ph3rkart.Controller.AuthController;
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.List;
-
 public class LoginScreen extends AppCompatActivity {
     TextInputEditText userName, password;
     AuthController verifyUser;
@@ -39,7 +37,7 @@ public class LoginScreen extends AppCompatActivity {
                 Toast.makeText(this, "Password incorrect", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
-                Intent intent = new Intent(this, ListOfProducts.class);
+                Intent intent = new Intent(this, Dashboard.class);
                 startActivity(intent);
                 Toast.makeText(this, "Welcome " + userName.getText() , Toast.LENGTH_SHORT).show();
         }

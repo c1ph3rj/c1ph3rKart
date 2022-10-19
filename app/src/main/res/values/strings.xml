@@ -6,7 +6,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="login_text">Login</string>
@@ -27,6 +26,14 @@
     <string name="productNameListText">ProductName</string>
     <string name="productListRatingText">Ratings</string>
     <string name="productListPriceText">Price</string>
+    <string name="categories_string">Categories</string>
+    <string name="smart_nPhonesCategoriesText">Smart\nPhones</string>
+    <string name="laptopCategoriesText">Laptop</string>
+    <string name="fragrancesCategoriesText">Fragrances</string>
+    <string name="skin_CareCategoriesText">Skin\nCare</string>
+    <string name="groceriesCategoriesText">groceries</string>
+    <string name="home_DecorationCategoriesText">Home\nDecoration</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>
