@@ -31,4 +31,12 @@
     <dimen name="smallTextSize">12sp</dimen>
     <dimen name="padding12dp">12dp</dimen>
     <dimen name="width100dp">100dp</dimen>
+    <dimen name="margin380dp">380dp</dimen>
+    <dimen name="width400dp">400dp</dimen>
+    <dimen name="width110dp">110dp</dimen>
+    <dimen name="width121dp">121dp</dimen>
+    <dimen name="height550dp">550dp</dimen>
+    <dimen name="width118dp">118dp</dimen>
+    <dimen name="height500dp">500dp</dimen>
+    <dimen name="height480dp">480dp</dimen>
 </resources>

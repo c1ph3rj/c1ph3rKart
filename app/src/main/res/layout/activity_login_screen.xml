@@ -60,7 +60,7 @@
                 android:layout_height="@dimen/textFieldHeight"
                 android:hint="@string/usernameHintText"
                 android:maxLength="28"
-                android:onClick="OnClickUserNameLayout"
+                android:singleLine="true"
                 android:textColor="@color/color3"
                 android:textSize="@dimen/normalTextSize" />
 
@@ -96,7 +96,6 @@
                 android:layout_height="@dimen/textFieldHeight"
                 android:hint="@string/passwordHintText"
                 android:inputType="textPassword"
-                android:onClick="OnClickPasswordLayout"
                 android:textColor="@color/color3"
                 android:textSize="@dimen/normalTextSize" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -33,85 +33,102 @@
         android:id="@+id/categoriesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="384dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/categories_string"
         android:textColor="@color/color2"
         android:textSize="@dimen/normalTextSize"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headingAtDashboard" />
 
     <androidx.gridlayout.widget.GridLayout
-        android:layout_width="400dp"
+        android:layout_width="@dimen/width380dp"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding12dp"
         app:columnCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headingAtDashboard"
-        app:layout_constraintVertical_bias="0.832"
+        app:layout_constraintVertical_bias="0.833"
         tools:ignore="RtlSymmetry">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/smartPhoneBtn"
             android:layout_width="@dimen/width100dp"
             android:layout_height="@dimen/height70dp"
-            android:layout_margin="@dimen/marginTop10dp"
+            android:layout_margin="@dimen/margin8dp"
+            android:backgroundTint="@color/color3"
             android:text="@string/smart_nPhonesCategoriesText"
+            android:textColor="@color/color1"
             android:textSize="@dimen/smallTextSize"
+            app:cornerRadius="@dimen/buttonCornerRadius"
             app:layout_column="0"
             app:layout_gravity="center"
             app:layout_row="0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/laptopBtn"
-            android:layout_width="110dp"
+            android:layout_width="@dimen/width110dp"
             android:layout_height="@dimen/height70dp"
-            android:layout_margin="@dimen/marginTop10dp"
+            android:layout_margin="@dimen/margin8dp"
+            android:backgroundTint="@color/color3"
             android:text="@string/laptopCategoriesText"
+            android:textColor="@color/color1"
             android:textSize="@dimen/smallTextSize"
+            app:cornerRadius="@dimen/buttonCornerRadius"
             app:layout_column="1"
             app:layout_gravity="center"
             app:layout_row="0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/fragrancesBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/width118dp"
             android:layout_height="@dimen/height70dp"
-            android:layout_margin="@dimen/marginTop10dp"
+            android:layout_margin="@dimen/margin8dp"
+            android:backgroundTint="@color/color3"
             android:text="@string/fragrancesCategoriesText"
+            android:textColor="@color/color1"
             android:textSize="@dimen/smallTextSize"
+            app:cornerRadius="@dimen/buttonCornerRadius"
             app:layout_gravity="center" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/skinCareBtn"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/width100dp"
             android:layout_height="@dimen/height70dp"
-            android:layout_margin="@dimen/marginTop10dp"
+            android:layout_margin="@dimen/margin8dp"
+            android:backgroundTint="@color/color3"
             android:text="@string/skin_CareCategoriesText"
+            android:textColor="@color/color1"
             android:textSize="@dimen/smallTextSize"
+            app:cornerRadius="@dimen/buttonCornerRadius"
             app:layout_gravity="center" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/groceriesBtn"
-            android:layout_width="110dp"
+            android:layout_width="@dimen/width110dp"
             android:layout_height="@dimen/height70dp"
-            android:layout_margin="@dimen/marginTop10dp"
+            android:layout_margin="@dimen/margin8dp"
+            android:backgroundTint="@color/color3"
             android:text="@string/groceriesCategoriesText"
+            android:textColor="@color/color1"
             android:textSize="@dimen/smallTextSize"
+            app:cornerRadius="@dimen/buttonCornerRadius"
             app:layout_gravity="center" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/homeDecorationsBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/width118dp"
             android:layout_height="@dimen/height70dp"
-            android:layout_margin="@dimen/marginTop10dp"
+            android:layout_margin="@dimen/margin8dp"
+            android:backgroundTint="@color/color3"
             android:text="@string/home_DecorationCategoriesText"
+            android:textColor="@color/color1"
             android:textSize="@dimen/smallTextSize"
+            app:cornerRadius="@dimen/buttonCornerRadius"
             app:layout_gravity="center" />
     </androidx.gridlayout.widget.GridLayout>
 

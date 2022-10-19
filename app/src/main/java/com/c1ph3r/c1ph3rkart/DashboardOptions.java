@@ -30,8 +30,6 @@ public class DashboardOptions extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        System.out.println("hello");
-        System.out.println("HelloThere");
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dashboard_options, container, false);
@@ -49,49 +47,18 @@ public class DashboardOptions extends Fragment {
         skinCare = view.findViewById(R.id.skinCareBtn);
         groceries = view.findViewById(R.id.groceriesBtn);
         homeDecorations = view.findViewById(R.id.homeDecorationsBtn);
-        String value ;
 
-        smartPhone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterData("smartphones");
-            }
-        });
+        smartPhone.setOnClickListener(view12 -> filterData("smartphones"));
 
-        laptops.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterData("laptops");
-            }
-        });
+        laptops.setOnClickListener(view1 -> filterData("laptops"));
 
-        fragrances.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterData("fragrances");
-            }
-        });
+        fragrances.setOnClickListener(view13 -> filterData("fragrances"));
 
-        groceries.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterData("groceries");
-            }
-        });
+        groceries.setOnClickListener(view14 -> filterData("groceries"));
 
-        homeDecorations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterData("home-decoration");
-            }
-        });
+        homeDecorations.setOnClickListener(view15 -> filterData("home-decoration"));
 
-        skinCare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterData("skincare");
-            }
-        });
+        skinCare.setOnClickListener(view16 -> filterData("skincare"));
 
 
     }
