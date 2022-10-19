@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="login_text">Login</string>
+    <string name="usernameHintText">UserName</string>
+    <string name="passwordHintText">Password</string>
+    <string name="loginBtn">Login</string>
+    <string name="cipher_kart_heading">CIPHER KART</string>
+    <string name="new_user_click_here">new User?\nClick Here.</string>
+    <string name="phone_number_string">Phone Number</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="password_hint">Password</string>
+    <string name="username_hint">UserName</string>
+    <string name="please_register_below_text">Please register below:</string>
+    <string name="submit_text">Submit</string>
 </resources>

@@ -9,10 +9,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="320dp"
-        android:layout_height="300dp"
+        android:layout_width="@dimen/CommonWidth"
+        android:layout_height="@dimen/loginLayoutHeight"
         android:background="@drawable/user_login_layout_background"
-        android:elevation="10dp"
+        android:elevation="@dimen/elevationOfLoginLayout"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,29 +25,29 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="@dimen/marginTop15dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/josefin_sans_bold"
-            android:text="Login"
+            android:text="@string/login_text"
             android:textColor="@color/color3"
-            android:textSize="30sp" />
+            android:textSize="@dimen/headingTextSize" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/UserNameLayout"
+            android:id="@+id/userNameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="280dp"
+            android:layout_width="@dimen/textFieldWidth"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/marginTop10dp"
             android:textColorHint="@color/color3"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
             app:boxStrokeColor="@color/color3"
-            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidth="@dimen/strokeSize"
             app:endIconMode="clear_text"
             app:endIconTint="@color/color3"
             app:hintTextColor="@color/color3"
@@ -55,32 +55,32 @@
             app:startIconTint="@color/color3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/UserNameField"
+                android:id="@+id/userNameField"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="UserName"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="@string/usernameHintText"
                 android:maxLength="28"
-                android:onClick="OnClickUserLayout"
+                android:onClick="OnClickUserNameLayout"
                 android:textColor="@color/color3"
-                android:textSize="18sp" />
+                android:textSize="@dimen/normalTextSize" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/PinLayout"
+            android:id="@+id/passwordLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="280dp"
+            android:layout_width="@dimen/textFieldWidth"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/marginTop10dp"
             android:textColorHint="@color/color3"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
             app:boxStrokeColor="@color/color3"
             app:boxStrokeErrorColor="@color/ErrorRed"
-            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidth="@dimen/strokeSize"
             app:counterEnabled="true"
             app:counterOverflowTextColor="@color/ErrorRed"
             app:counterTextColor="@color/color3"
@@ -91,28 +91,28 @@
             app:startIconTint="@color/color3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/PinField"
+                android:id="@+id/passwordField"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="Password"
-                android:inputType="numberPassword"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="@string/passwordHintText"
+                android:inputType="textPassword"
                 android:maxLength="4"
-                android:onClick="OnClickPinLayout"
+                android:onClick="OnClickPasswordLayout"
                 android:textColor="@color/color3"
-                android:textSize="18sp" />
+                android:textSize="@dimen/normalTextSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:layout_width="100dp"
+            android:id="@+id/loginBtn"
+            android:layout_width="@dimen/btnWidth"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/marginTop10dp"
             android:backgroundTint="@color/color3"
-            android:elevation="10dp"
-            android:text="Login"
+            android:elevation="@dimen/elevationOfLoginLayout"
+            android:text="@string/loginBtn"
             android:onClick="onClickLoginBtn"
             android:textColor="@color/white"
-            app:cornerRadius="8dp" />
+            app:cornerRadius="@dimen/buttonCornerRadius" />
     </LinearLayout>
 
     <TextView
@@ -120,16 +120,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aclonica_regular"
-        android:text="CIPHER KART"
+        android:text="@string/cipher_kart_heading"
         android:textAlignment="textStart"
         android:textColor="@color/color1"
-        android:textSize="36sp"
+        android:textSize="@dimen/headingTextSize"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.426" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="@dimen/diwaliWishDimen"
+        android:layout_height="@dimen/diwaliWishDimen"
+        android:layout_marginBottom="@dimen/marginTopWIsh"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ApplicationName"
+        app:layout_constraintVertical_bias="0.507"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/happy_diwali" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/newUserBtn"
+        android:onClick="onClickNewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color2"
+        android:text="@string/new_user_click_here"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.318" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

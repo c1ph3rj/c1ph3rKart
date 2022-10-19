@@ -1,3 +1,18 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="CommonWidth">320dp</dimen>
+    <dimen name="loginLayoutHeight">300dp</dimen>
+    <dimen name="elevationOfLoginLayout">10dp</dimen>
+    <dimen name="marginTop15dp">15dp</dimen>
+    <dimen name="headingTextSize">30sp</dimen>
+    <dimen name="textFieldWidth">280dp</dimen>
+    <dimen name="marginTop10dp">10dp</dimen>
+    <dimen name="radiusTextField">12dp</dimen>
+    <dimen name="strokeSize">2dp</dimen>
+    <dimen name="textFieldHeight">55dp</dimen>
+    <dimen name="normalTextSize">18sp</dimen>
+    <dimen name="buttonCornerRadius">8dp</dimen>
+    <dimen name="btnWidth">100dp</dimen>
+    <dimen name="diwaliWishDimen">213dp</dimen>
+    <dimen name="marginTopWIsh">92dp</dimen>
 </resources>

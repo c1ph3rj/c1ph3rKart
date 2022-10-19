@@ -1,4 +1,4 @@
-package com.c1ph3r.c1ph3rkart.Controller;
+package com.c1ph3r.c1ph3rkart.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
