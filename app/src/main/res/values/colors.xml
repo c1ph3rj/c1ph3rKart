@@ -8,10 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <color name="color1">#E9D5DA</color>
-    <color name="color2">#827397</color>
-    <color name="color3">#4D4C7D</color>
-    <color name="color4">#363062</color>
+    <color name="color1">#c4dfe6</color>
+    <color name="color2">#66a5ad</color>
+    <color name="color3">#07575b</color>
+    <color name="color4">#003b46</color>
     <color name="ErrorRed">#B80F0A</color>
 
 </resources>

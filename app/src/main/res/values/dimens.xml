@@ -24,7 +24,7 @@
     <dimen name="elevationProductItem">6dp</dimen>
     <dimen name="width380dp">380dp</dimen>
     <dimen name="height100dp">100dp</dimen>
-    <dimen name="value80dp">80dp</dimen>
+    <dimen name="value70dp">70dp</dimen>
     <dimen name="margin8dp">8dp</dimen>
     <dimen name="padding10dp">10dp</dimen>
     <dimen name="height70dp">70dp</dimen>
@@ -39,4 +39,6 @@
     <dimen name="width118dp">118dp</dimen>
     <dimen name="height500dp">500dp</dimen>
     <dimen name="height480dp">480dp</dimen>
+    <dimen name="width180dp">180dp</dimen>
+    <dimen name="height300dp">300dp</dimen>
 </resources>

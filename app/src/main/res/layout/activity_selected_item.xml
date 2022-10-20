@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-     tools:context=".ProductsInTheData">
+    tools:context=".SelectedItem">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -52,57 +52,34 @@
             app:tint="@color/color4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/productImages"
         android:layout_width="@dimen/CommonWidth"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="@dimen/height300dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         app:layout_constraintVertical_bias="0.0">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/productListViewer"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height500dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/marginTop10dp"
-            android:background="@drawable/recycle_viewer_background"
-            android:padding="@dimen/padding10dp" />
-    </LinearLayout>
+    </androidx.viewpager.widget.ViewPager>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColorHint="@color/color3"
-        app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
-        app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
-        app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
-        app:boxCornerRadiusTopStart="@dimen/radiusTextField"
-        app:boxStrokeColor="@color/color3"
-        app:boxStrokeWidth="@dimen/strokeSize"
-        app:endIconDrawable="@drawable/ic_baseline_search_24"
-        app:endIconMode="custom"
-        app:endIconTint="@color/color3"
-        app:hintTextColor="@color/color3"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/josefin_sans_semi_bold"
+        android:text="@string/swipe_to_change_text"
+        android:textAlignment="center"
+        android:textColor="@color/color3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/textFieldHeight"
-            android:hint="search" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+        app:layout_constraintTop_toBottomOf="@+id/productImages"
+        app:layout_constraintVertical_bias="0.009" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

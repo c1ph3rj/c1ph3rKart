@@ -19,9 +19,11 @@ import java.util.ArrayList;
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.MyViewHolder> {
     Context context;
     ArrayList<ProductList> productLists;
-    public ProductListAdapter(Context context, ArrayList<ProductList> productLists){
+    productOnClick itemOnClick;
+    public ProductListAdapter(Context context, ArrayList<ProductList> productLists, productOnClick itemOnClick){
         this.context = context;
         this.productLists = productLists;
+        this.itemOnClick = itemOnClick;
     }
 
     @NonNull
@@ -31,7 +33,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         // Gives look to the Recycle viewer row.
         LayoutInflater inflater = LayoutInflater.from(context );
         View view = inflater.inflate(R.layout.product_item_layout, parent, false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(view, itemOnClick);
     }
 
     @Override
@@ -46,6 +48,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.ratings.setText(String.valueOf(productLists.get(position).getRating()));
         Glide.with(context).load(String.valueOf(productLists.get(position).getThumbnail())).into(holder.thumbnailImage);
 
+
     }
 
     @Override
@@ -59,12 +62,21 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         // It takes the layout and assign it to the recycle viewer.
         TextView productName, ratings, price;
         ImageView thumbnailImage;
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, productOnClick itemOnClick) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
             ratings = itemView.findViewById(R.id.ratings);
             price = itemView.findViewById(R.id.price);
             thumbnailImage = itemView.findViewById(R.id.thumbnailImage);
+
+            itemView.setOnClickListener(view -> {
+                if(itemOnClick!=null){
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION){
+                        itemOnClick.onClickAnItem(position);
+                    }
+                }
+            });
         }
     }
 }

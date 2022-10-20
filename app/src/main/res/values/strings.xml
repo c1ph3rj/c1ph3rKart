@@ -35,5 +35,6 @@
     <string name="home_DecorationCategoriesText">Home\nDecoration</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="swipe_to_change_text"><![CDATA[< Swipe To Change >]]></string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

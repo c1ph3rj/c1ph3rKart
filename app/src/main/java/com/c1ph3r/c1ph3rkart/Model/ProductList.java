@@ -1,8 +1,9 @@
 package com.c1ph3r.c1ph3rkart.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProductList {
+public class ProductList implements Serializable {
     private float id;
     private String title;
     private String description;

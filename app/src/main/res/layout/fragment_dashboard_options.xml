@@ -11,53 +11,83 @@
     tools:layout_editor_absoluteY="25dp">
 
 
-    <TextView
-        android:id="@+id/headingAtDashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/marginTop15dp"
-        android:layout_marginTop="@dimen/marginTop15dp"
-        android:fontFamily="@font/aclonica_regular"
-        android:shadowColor="@color/white"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="1"
-        android:text="@string/app_name"
-        android:textColor="@color/color4"
-        android:textSize="@dimen/headingTextSize"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/top_bar"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/headingAtDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/aclonica_regular"
+            android:shadowColor="@color/white"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="@string/app_name"
+            android:textColor="@color/color4"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toEndOf="@+id/headingAtDashboard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+            app:tint="@color/color4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
         android:id="@+id/categoriesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="284dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/categories_string"
         android:textColor="@color/color2"
         android:textSize="@dimen/normalTextSize"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headingAtDashboard" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <androidx.gridlayout.widget.GridLayout
-        android:layout_width="@dimen/width380dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:columnCount="3"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/shape_of_image"
+        android:padding="@dimen/margin24dp"
+        app:alignmentMode="alignMargins"
+        app:columnCount="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headingAtDashboard"
-        app:layout_constraintVertical_bias="0.833"
         tools:ignore="RtlSymmetry">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/smartPhoneBtn"
-            android:layout_width="@dimen/width100dp"
+            android:layout_width="@dimen/width110dp"
             android:layout_height="@dimen/height70dp"
             android:layout_margin="@dimen/margin8dp"
             android:backgroundTint="@color/color3"
@@ -85,7 +115,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/fragrancesBtn"
-            android:layout_width="@dimen/width118dp"
+            android:layout_width="@dimen/width110dp"
             android:layout_height="@dimen/height70dp"
             android:layout_margin="@dimen/margin8dp"
             android:backgroundTint="@color/color3"
@@ -97,7 +127,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/skinCareBtn"
-            android:layout_width="@dimen/width100dp"
+            android:layout_width="@dimen/width110dp"
             android:layout_height="@dimen/height70dp"
             android:layout_margin="@dimen/margin8dp"
             android:backgroundTint="@color/color3"
