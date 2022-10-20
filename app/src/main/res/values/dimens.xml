@@ -41,4 +41,5 @@
     <dimen name="height480dp">480dp</dimen>
     <dimen name="width180dp">180dp</dimen>
     <dimen name="height300dp">300dp</dimen>
+    <dimen name="width280dp">280dp</dimen>
 </resources>

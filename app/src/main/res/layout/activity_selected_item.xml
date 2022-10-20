@@ -52,34 +52,106 @@
             app:tint="@color/color4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/productImages"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height550dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/productImages"
+                android:layout_width="@dimen/CommonWidth"
+                android:layout_height="@dimen/height300dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                app:layout_constraintVertical_bias="0.0">
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <TextView
+                android:id="@+id/productNameText"
+                android:layout_width="@dimen/CommonWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/josefin_sans_semi_bold"
+                android:text="@string/swipe_to_change_text"
+                android:textAlignment="center"
+                android:textColor="@color/color3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productImages"
+                app:layout_constraintVertical_bias="0.009" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/CommonWidth"
+                android:layout_marginTop="4dp"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/selectedProductName"
+                    android:layout_width="@dimen/width280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Name"
+                    android:fontFamily="@font/josefin_sans_medium"
+                    android:textColor="@color/color3"
+                    android:textSize="@dimen/normalTextSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.028" />
+
+                <TextView
+                    android:id="@+id/selectedProductBrandName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Brand"
+                    android:fontFamily="@font/josefin_sans_bold"
+                    android:textColor="@color/color3"
+                    android:textSize="@dimen/normalTextSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectedProductName"
+                    app:layout_constraintVertical_bias="0.059" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
         android:layout_width="@dimen/CommonWidth"
-        android:layout_height="@dimen/height300dp"
-        android:layout_marginTop="22dp"
+        android:layout_height="@dimen/value70dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/color3"
+        android:drawableTint="@color/color1"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/add_to_cart_btn_string"
+        android:textColor="@color/color1"
+        android:textSize="@dimen/normalTextSize"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/color1"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:icon="@drawable/ic_baseline_shopping_cart_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        app:layout_constraintVertical_bias="0.0">
-
-    </androidx.viewpager.widget.ViewPager>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="@dimen/CommonWidth"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/josefin_sans_semi_bold"
-        android:text="@string/swipe_to_change_text"
-        android:textAlignment="center"
-        android:textColor="@color/color3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productImages"
-        app:layout_constraintVertical_bias="0.009" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
