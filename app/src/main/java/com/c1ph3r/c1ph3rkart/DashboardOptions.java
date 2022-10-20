@@ -11,14 +11,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
-
-import java.util.Objects;
 
 public class DashboardOptions extends Fragment {
     MaterialButton  laptops, fragrances, skinCare, groceries, homeDecorations;
     Button smartPhone;
+    BottomNavigationView bottomNav;
     ImageButton searchButton;
+    public DashboardOptions(BottomNavigationView bottomNav) {
+        this.bottomNav = bottomNav;
+        // Required empty public constructor
+    }
     public DashboardOptions() {
         // Required empty public constructor
     }
@@ -63,8 +67,8 @@ public class DashboardOptions extends Fragment {
         skinCare.setOnClickListener(view16 -> filterData("skincare"));
 
         searchButton.setOnClickListener(view17 -> {
-            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new allProducts()).commit();
-            getActivity().bottomNav.setSelectedItemId(R.id.dashboardOptions);
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new allProducts(bottomNav)).commit();
+            bottomNav.setSelectedItemId(R.id.allProducts);
         });
 
 

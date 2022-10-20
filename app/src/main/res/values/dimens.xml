@@ -42,4 +42,6 @@
     <dimen name="width180dp">180dp</dimen>
     <dimen name="height300dp">300dp</dimen>
     <dimen name="width280dp">280dp</dimen>
+    <dimen name="height540">540dp</dimen>
+    <dimen name="height110">110dp</dimen>
 </resources>

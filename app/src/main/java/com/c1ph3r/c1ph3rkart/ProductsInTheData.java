@@ -30,10 +30,9 @@ import java.util.Locale;
 public class ProductsInTheData extends AppCompatActivity implements productOnClick {
     RequestQueue requestQueue;
     RecyclerView productListViewer;
-    ArrayList<ProductList> searchedProducts;
     TextInputEditText search;
     String value = "";
-    ArrayList<ProductList> productLists, filteredProducts;
+    ArrayList<ProductList> productLists, filteredProducts, searchedProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,13 +116,11 @@ public class ProductsInTheData extends AppCompatActivity implements productOnCli
         if(this.value!=null){
             intent.putExtra("value",this.value);
             intent.putExtra("selectedProduct", filteredProducts.get(position));
-            startActivity(intent);
-            finish();
         }else{
             intent.putExtra("selectedProduct", productLists.get(position));
-            startActivity(intent);
-            finish();
         }
+        startActivity(intent);
+        finish();
     }
 
     void setRecycleViewAdapter(ArrayList<ProductList> value){

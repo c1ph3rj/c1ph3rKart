@@ -71,7 +71,6 @@
                 android:id="@+id/productImages"
                 android:layout_width="@dimen/CommonWidth"
                 android:layout_height="@dimen/height300dp"
-                android:layout_marginTop="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.494"
@@ -100,14 +99,14 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="@dimen/CommonWidth"
                 android:layout_marginTop="4dp"
-                android:layout_height="200dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/selectedProductName"
                     android:layout_width="@dimen/width280dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Name"
+                    android:text="Name: "
                     android:fontFamily="@font/josefin_sans_medium"
                     android:textColor="@color/color3"
                     android:textSize="@dimen/normalTextSize"
@@ -121,14 +120,57 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Brand"
-                    android:fontFamily="@font/josefin_sans_bold"
+                    android:text="Brand: "
+                    android:fontFamily="@font/josefin_sans_medium"
                     android:textColor="@color/color3"
                     android:textSize="@dimen/normalTextSize"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/selectedProductName"
                     app:layout_constraintVertical_bias="0.059" />
+
+                <TextView
+                    android:id="@+id/selectedProductDescription"
+                    android:layout_width="@dimen/width280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/josefin_sans_medium"
+                    android:text="Description :\n"
+                    android:textColor="@color/color3"
+                    android:textSize="@dimen/normalTextSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectedProductBrandName"
+                    app:layout_constraintVertical_bias="0.078" />
+
+                <TextView
+                    android:id="@+id/selectedProductDiscount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/josefin_sans_medium"
+                    android:text="Discount: "
+                    android:textColor="@color/color3"
+                    android:textSize="@dimen/normalTextSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectedProductDescription"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/selectedProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/josefin_sans_medium"
+                    android:text="Price: $"
+                    android:textColor="@color/color3"
+                    android:textSize="@dimen/normalTextSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectedProductDiscount"
+                    app:layout_constraintVertical_bias="0.428" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

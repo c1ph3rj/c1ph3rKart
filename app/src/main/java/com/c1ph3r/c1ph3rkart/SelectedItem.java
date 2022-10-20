@@ -3,6 +3,7 @@ package com.c1ph3r.c1ph3rkart;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,8 +16,9 @@ import java.util.Objects;
 public class SelectedItem extends AppCompatActivity {
     ProductList selectedItem;
     String value = "";
-    TextView productName, brandName;
+    TextView productName, brandName,description, discount, price;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,10 @@ public class SelectedItem extends AppCompatActivity {
         Intent intent = getIntent();
         productName = findViewById(R.id.selectedProductName);
         brandName = findViewById(R.id.selectedProductBrandName);
+        description = findViewById(R.id.selectedProductDescription);
+        discount = findViewById(R.id.selectedProductDiscount);
+        price = findViewById(R.id.selectedProductPrice);
+
         selectedItem = (ProductList) intent.getSerializableExtra("selectedProduct");
         value = intent.getStringExtra("value");
 
@@ -31,8 +37,11 @@ public class SelectedItem extends AppCompatActivity {
         ProductImagesAdapter imageAdapter = new ProductImagesAdapter(this, selectedItem.getImages());
         productImages.setAdapter(imageAdapter);
 
-        productName.setText(selectedItem.getTitle());
-        brandName.setText(selectedItem.getBrand());
+        productName.setText(productName.getText() + ": " + selectedItem.getTitle());
+        brandName.setText(brandName.getText() +": " +selectedItem.getBrand());
+        description.setText(description.getText() + selectedItem.getDescription());
+        discount.setText(discount.getText() + String.valueOf(selectedItem.getDiscountPercentage()) + "%");
+        price.setText(price.getText()+ String.valueOf(selectedItem.getPrice()));
 
 
     }

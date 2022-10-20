@@ -13,19 +13,21 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class Dashboard extends AppCompatActivity {
     public BottomNavigationView bottomNav;
+
+
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         bottomNav = findViewById(R.id.bottomNavigation);
-        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions(bottomNav)).commit();
         bottomNav.setSelectedItemId(R.id.dashboardOptions);
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
             switch(item.getItemId()){
                 case R.id.dashboardOptions:
-                    fragment = new DashboardOptions();
+                    fragment = new DashboardOptions(bottomNav);
                     break;
                 case R.id.allProducts:
                     fragment = new allProducts() ;
@@ -44,6 +46,7 @@ public class Dashboard extends AppCompatActivity {
         });
     }
 
+
     public void onBackPressed(){
         MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
         alertDialogBuilder.setTitle("C1ph3R Kart!").setMessage("Do you Want to Logout?").setPositiveButton("No", (dialogInterface, i1) -> {}).setNegativeButton("yes", (dialogInterface, i1) -> {
@@ -56,6 +59,7 @@ public class Dashboard extends AppCompatActivity {
             finish();
         }).show();
     }
+
 
     protected void onResume() {
         super.onResume();

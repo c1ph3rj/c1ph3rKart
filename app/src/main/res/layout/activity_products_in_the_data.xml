@@ -67,7 +67,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productListViewer"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height500dp"
+            android:layout_height="@dimen/height550dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/marginTop10dp"
             android:background="@drawable/recycle_viewer_background"
@@ -98,11 +98,11 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
             android:id="@+id/searchField"
-            android:textColor="@color/color4"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/textFieldHeight"
-            android:hint="search" />
+            android:hint="search"
+            android:textColor="@color/color4" />
 
 
     </com.google.android.material.textfield.TextInputLayout>

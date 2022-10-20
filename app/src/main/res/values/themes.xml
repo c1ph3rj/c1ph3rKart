@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.C1ph3rKart" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/color5</item>
+        <item name="colorPrimary">@color/color2</item>
         <item name="colorPrimaryVariant">@color/color4</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
