@@ -1,29 +1,65 @@
 package com.c1ph3r.c1ph3rkart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class Dashboard extends AppCompatActivity {
-
+    public BottomNavigationView bottomNav;
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
+        bottomNav = findViewById(R.id.bottomNavigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions()).commit();
-
+        bottomNav.setSelectedItemId(R.id.dashboardOptions);
+        bottomNav.setOnItemSelectedListener(item -> {
+            Fragment fragment = null;
+            switch(item.getItemId()){
+                case R.id.dashboardOptions:
+                    fragment = new DashboardOptions();
+                    break;
+                case R.id.allProducts:
+                    fragment = new allProducts() ;
+                    break;
+                case R.id.cartU:
+                    fragment = new checkoutCart();
+                    break;
+                case R.id.Settings:
+                    fragment = new settings();
+                    break;
+            }
+            if(fragment!=null){
+                getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, fragment).commit();
+            }
+            return true;
+        });
     }
 
     public void onBackPressed(){
         MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
         alertDialogBuilder.setTitle("C1ph3R Kart!").setMessage("Do you Want to Logout?").setPositiveButton("No", (dialogInterface, i1) -> {}).setNegativeButton("yes", (dialogInterface, i1) -> {
+            SharedPreferences sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("userName", "");
+            editor.apply();
             Intent intent = new Intent(this, LoginScreen.class);
             startActivity(intent);
             finish();
         }).show();
+    }
+
+    protected void onResume() {
+        super.onResume();
+        bottomNav.setSelectedItemId(R.id.dashboardOptions);
     }
 }
 

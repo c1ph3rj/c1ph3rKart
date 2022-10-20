@@ -44,7 +44,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         // It is basically a recycler.
 
         holder.productName.setText(productLists.get(position).getTitle());
-        holder.price.setText( String.valueOf(productLists.get(position).getPrice()));
+        holder.price.setText( String.valueOf("$ "+productLists.get(position).getPrice()));
         holder.ratings.setText(String.valueOf(productLists.get(position).getRating()));
         Glide.with(context).load(String.valueOf(productLists.get(position).getThumbnail())).into(holder.thumbnailImage);
 

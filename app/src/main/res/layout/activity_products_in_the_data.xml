@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/searchFieldLayout"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -75,7 +75,7 @@
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/searchFieldLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="wrap_content"
@@ -89,6 +89,7 @@
         app:boxStrokeWidth="@dimen/strokeSize"
         app:endIconDrawable="@drawable/ic_baseline_search_24"
         app:endIconMode="custom"
+        app:errorTextColor="@color/color4"
         app:endIconTint="@color/color3"
         app:hintTextColor="@color/color3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +99,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/searchField"
+            android:textColor="@color/color4"
             android:layout_height="@dimen/textFieldHeight"
             android:hint="search" />
 

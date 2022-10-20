@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="@dimen/CommonWidth"
-        android:layout_height="@dimen/loginLayoutHeight"
+        android:layout_height="@dimen/value300dp"
         android:background="@drawable/user_login_layout_background"
         android:elevation="@dimen/elevationOfLoginLayout"
         android:gravity="center_horizontal"

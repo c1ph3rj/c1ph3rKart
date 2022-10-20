@@ -3,6 +3,7 @@ package com.c1ph3r.c1ph3rkart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -39,6 +40,10 @@ public class LoginScreen extends AppCompatActivity {
             case 3:
                 Intent intent = new Intent(this, Dashboard.class);
                 startActivity(intent);
+                SharedPreferences sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("userName", String.valueOf(userName.getText()));
+                editor.apply();
                 Toast.makeText(this, "Welcome " + userName.getText() , Toast.LENGTH_SHORT).show();
         }
     }

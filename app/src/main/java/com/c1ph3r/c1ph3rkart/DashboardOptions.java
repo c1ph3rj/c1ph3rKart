@@ -9,13 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.material.button.MaterialButton;
 
 import java.util.Objects;
 
 public class DashboardOptions extends Fragment {
-
+    MaterialButton  laptops, fragrances, skinCare, groceries, homeDecorations;
+    Button smartPhone;
+    ImageButton searchButton;
     public DashboardOptions() {
         // Required empty public constructor
     }
@@ -39,8 +42,7 @@ public class DashboardOptions extends Fragment {
         super.onStart();
         View view = getView();
         assert view != null;
-        MaterialButton  laptops, fragrances, skinCare, groceries, homeDecorations;
-        Button smartPhone;
+        searchButton = view.findViewById(R.id.searchIcon);
         smartPhone = view.findViewById(R.id.smartPhoneBtn);
         laptops = view.findViewById(R.id.laptopBtn);
         fragrances = view.findViewById(R.id.fragrancesBtn);
@@ -59,6 +61,11 @@ public class DashboardOptions extends Fragment {
         homeDecorations.setOnClickListener(view15 -> filterData("home-decoration"));
 
         skinCare.setOnClickListener(view16 -> filterData("skincare"));
+
+        searchButton.setOnClickListener(view17 -> {
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new allProducts()).commit();
+            getActivity().bottomNav.setSelectedItemId(R.id.dashboardOptions);
+        });
 
 
     }

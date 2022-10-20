@@ -48,6 +48,8 @@ public class RegisterNewUser extends AppCompatActivity {
                 break;
             case 6:
                 Toast.makeText(this, "Successfully Registered.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, LoginScreen.class);
+                startActivity(intent);
                 break;
             case 7:
                 Toast.makeText(this, "userName Already exists", Toast.LENGTH_SHORT).show();

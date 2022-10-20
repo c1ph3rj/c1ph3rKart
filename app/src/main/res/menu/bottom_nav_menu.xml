@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dashboardOptions"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:iconTint="@color/color1"
+        android:title="@string/dashboard_btn_text" />
+    <item
+        android:id="@+id/allProducts"
+        android:icon="@drawable/ic_baseline_ballot_24"
+        android:iconTint="@color/color1"
+        android:title="@string/all_products_btn_text" />
+    <item
+        android:id="@+id/cartU"
+        android:icon="@drawable/ic_baseline_shopping_cart_checkout_24"
+        android:title="@string/cart_btn_text" />
+    <item
+        android:id="@+id/Settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:iconTint="@color/color1"
+        android:title="@string/settings_btn_text" />
+</menu>

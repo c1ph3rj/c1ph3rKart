@@ -1,7 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="CommonWidth">320dp</dimen>
-    <dimen name="loginLayoutHeight">300dp</dimen>
+    <dimen name="value300dp">300dp</dimen>
     <dimen name="elevationOfLoginLayout">10dp</dimen>
     <dimen name="marginTop15dp">15dp</dimen>
     <dimen name="headingTextSize">30sp</dimen>

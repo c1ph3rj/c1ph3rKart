@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.KeyListener;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.android.volley.Request;
@@ -16,13 +20,18 @@ import com.c1ph3r.c1ph3rkart.Adapter.ProductListAdapter;
 import com.c1ph3r.c1ph3rkart.Adapter.productOnClick;
 import com.c1ph3r.c1ph3rkart.Model.ApplicationData;
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductsInTheData extends AppCompatActivity implements productOnClick {
     RequestQueue requestQueue;
     RecyclerView productListViewer;
+    ArrayList<ProductList> searchedProducts;
+    TextInputEditText search;
     String value = "";
     ArrayList<ProductList> productLists, filteredProducts;
 
@@ -32,10 +41,39 @@ public class ProductsInTheData extends AppCompatActivity implements productOnCli
         setContentView(R.layout.activity_products_in_the_data);
         productListViewer = findViewById(R.id.productListViewer);
         requestQueue = Volley.newRequestQueue(this);
+        search = findViewById(R.id.searchField);
         Intent intent = getIntent();
         value = intent.getStringExtra("value");
         onListOfAllItems();
+        search.setText(null);
 
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                value = charSequence.toString().toLowerCase();
+                searchedProducts = new ArrayList<>();
+                if(filteredProducts!=null){
+                    for (int j = 0;j<filteredProducts.size();j++){
+                        if(filteredProducts.get(j).getBrand().toLowerCase().contains(value))
+                            searchedProducts.add(filteredProducts.get(j));
+                        else if(filteredProducts.get(j).getTitle().toLowerCase().contains(value))
+                            searchedProducts.add(filteredProducts.get(j));
+                    }
+                    setRecycleViewAdapter(searchedProducts);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     public void onListOfAllItems(){
@@ -54,14 +92,9 @@ public class ProductsInTheData extends AppCompatActivity implements productOnCli
                                 if(productLists.get(i).getCategory().equals(value))
                                     filteredProducts.add(productLists.get(i));
                             }
-                            ProductListAdapter adapter = new ProductListAdapter(this,filteredProducts,this );
-                            productListViewer.setAdapter(adapter);
-                            productListViewer.setLayoutManager(new LinearLayoutManager(this));
-                        }else{
-                            ProductListAdapter adapter = new ProductListAdapter(this,productLists,this );
-                            productListViewer.setAdapter(adapter);
-                            productListViewer.setLayoutManager(new LinearLayoutManager(this));
-                        }
+                            setRecycleViewAdapter(filteredProducts);
+                        }else
+                            setRecycleViewAdapter(productLists);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -91,5 +124,11 @@ public class ProductsInTheData extends AppCompatActivity implements productOnCli
             startActivity(intent);
             finish();
         }
+    }
+
+    void setRecycleViewAdapter(ArrayList<ProductList> value){
+        ProductListAdapter adapter = new ProductListAdapter(this,value,this );
+        productListViewer.setAdapter(adapter);
+        productListViewer.setLayoutManager(new LinearLayoutManager(this));
     }
 }

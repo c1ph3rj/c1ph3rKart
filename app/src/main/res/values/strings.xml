@@ -37,5 +37,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="swipe_to_change_text"><![CDATA[< Swipe To Change >]]></string>
     <string name="add_to_cart_btn_string">Add to Cart</string>
+    <string name="dashboard_btn_text">Dashboard</string>
+    <string name="all_products_btn_text">All Products</string>
+    <string name="cart_btn_text">Cart</string>
+    <string name="settings_btn_text">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
