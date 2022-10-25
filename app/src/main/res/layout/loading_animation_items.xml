@@ -39,7 +39,7 @@
                 android:layout_width="@dimen/width180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/productListMarginTop"
-                android:text="@string/productNameListText"
+                android:background="@color/color3"
                 android:textSize="@dimen/normalTextSize"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,33 +47,30 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.166" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/ratings"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin24dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/color3"
                 android:textColor="@color/black"
-                android:gravity="center"
-                android:drawablePadding="2dp"
-                android:drawableEnd="@drawable/star"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/thumbnailImage"
                 app:layout_constraintTop_toBottomOf="@+id/productName"
-                app:layout_constraintVertical_bias="0.636" />
+                app:layout_constraintVertical_bias="0.638" />
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="@string/productListPriceText"
-                android:fontFamily="@font/josefin_sans_bold"
-                android:textColor="@color/green"
+                android:background="@color/color3"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.617"
+                app:layout_constraintHorizontal_bias="0.597"
                 app:layout_constraintStart_toEndOf="@+id/thumbnailImage"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.774" />
+                app:layout_constraintVertical_bias="0.816" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

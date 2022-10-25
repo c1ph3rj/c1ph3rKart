@@ -9,7 +9,7 @@
     <dimen name="marginTop10dp">10dp</dimen>
     <dimen name="radiusTextField">12dp</dimen>
     <dimen name="strokeSize">2dp</dimen>
-    <dimen name="textFieldHeight">55dp</dimen>
+    <dimen name="textFieldHeight">50dp</dimen>
     <dimen name="normalTextSize">18sp</dimen>
     <dimen name="buttonCornerRadius">8dp</dimen>
     <dimen name="btnWidth">100dp</dimen>
@@ -44,4 +44,7 @@
     <dimen name="width280dp">280dp</dimen>
     <dimen name="height540">540dp</dimen>
     <dimen name="height110">110dp</dimen>
+    <dimen name="value280dp">280dp</dimen>
+    <dimen name="value4dp">4dp</dimen>
+    <dimen name="value8dp">8dp</dimen>
 </resources>

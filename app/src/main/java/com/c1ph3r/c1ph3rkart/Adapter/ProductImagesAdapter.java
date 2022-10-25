@@ -37,7 +37,7 @@ public class ProductImagesAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView image = new ImageView(context);
-        image.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            image.setScaleType(ImageView.ScaleType.FIT_CENTER);
         Glide.with(context).load(String.valueOf(images.get(position))).into(image);
         container.addView(image);
         return image;

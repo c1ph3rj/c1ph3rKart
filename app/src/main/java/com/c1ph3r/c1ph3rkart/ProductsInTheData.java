@@ -103,11 +103,7 @@ public class ProductsInTheData extends AppCompatActivity implements productOnCli
         requestQueue.add(request);
     }
 
-    public void onBackPressed(){
-        Intent intent = new Intent(this, Dashboard.class);
-        startActivity(intent);
-        finish();
-    }
+
 
     @Override
     public void onClickAnItem(int position) {

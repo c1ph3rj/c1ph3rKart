@@ -24,7 +24,6 @@
     <string name="headingAtSplashScreen">C1PH3R Kart</string>
     <string name="textBelowHeadingSplashScreen">Get What you see 😉</string>
     <string name="productNameListText">ProductName</string>
-    <string name="productListRatingText">Ratings</string>
     <string name="productListPriceText">Price</string>
     <string name="categories_string">Categories</string>
     <string name="smart_nPhonesCategoriesText">Mobiles</string>
@@ -41,5 +40,11 @@
     <string name="all_products_btn_text">All Products</string>
     <string name="cart_btn_text">Cart</string>
     <string name="settings_btn_text">Settings</string>
+    <string name="filter_Btn_text">Filter</string>
+    <string name="brand_name">Brand:</string>
+    <string name="product_name">Name:</string>
+    <string name="product_description">Description:</string>
+    <string name="product_discount">Discount:</string>
+    <string name="products_ratings">Ratings:</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

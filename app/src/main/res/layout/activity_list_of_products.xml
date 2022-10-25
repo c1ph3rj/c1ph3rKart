@@ -11,7 +11,9 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/top_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +44,8 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:backgroundTint="@null"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.86"
@@ -49,29 +53,62 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.529"
             app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-            app:tint="@color/color4" />
+            app:tint="@color/color4"
+            tools:ignore="SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="@dimen/CommonWidth"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height550dp"
+        android:background="@drawable/recycle_viewer_background"
         android:orientation="vertical"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchFieldLayoutN"
         app:layout_constraintVertical_bias="0.0">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/loadingScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding10dp">
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+
+            </LinearLayout>
+
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productListViewerN"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height550dp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/marginTop10dp"
-            android:background="@drawable/recycle_viewer_background"
-            android:padding="@dimen/padding10dp" />
+            android:padding="@dimen/padding10dp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -89,8 +126,8 @@
         app:boxStrokeWidth="@dimen/strokeSize"
         app:endIconDrawable="@drawable/ic_baseline_search_24"
         app:endIconMode="custom"
-        app:errorTextColor="@color/color4"
         app:endIconTint="@color/color3"
+        app:errorTextColor="@color/color4"
         app:hintTextColor="@color/color3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -106,6 +143,23 @@
 
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/filterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:elevation="@dimen/elevationProductItem"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/filter_Btn_text"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/color3"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.900"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

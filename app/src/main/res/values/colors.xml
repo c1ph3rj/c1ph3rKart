@@ -13,6 +13,7 @@
     <color name="color3">#5C6E8F</color>
     <color name="color4">#293241</color>
     <color name="color5">#91B1E8</color>
+    <color name="green">#228b22</color>
     <color name="ErrorRed">#B80F0A</color>
 
 </resources>

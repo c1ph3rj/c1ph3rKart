@@ -1,24 +1,24 @@
 package com.c1ph3r.c1ph3rkart;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.Volley;
 import com.c1ph3r.c1ph3rkart.Adapter.ProductListAdapter;
 import com.c1ph3r.c1ph3rkart.Adapter.productOnClick;
 import com.c1ph3r.c1ph3rkart.Model.ApplicationData;
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
 import com.c1ph3r.c1ph3rkart.retroFitAPICall.Products;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,16 +29,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ListOfProducts extends AppCompatActivity implements productOnClick {
     RecyclerView productListViewer;
     TextInputEditText search;
+    ShimmerFrameLayout loading;
     String value = "";
-    ArrayList<ProductList> productLists, filteredProducts, searchedProducts;
+    Call<ApplicationData> call;
+    ArrayList<ProductList> productLists;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_products);
         productListViewer = findViewById(R.id.productListViewerN);
+        loading = findViewById(R.id.loadingScreen);
+        loading.startShimmer();
         search = findViewById(R.id.searchFieldN);
         Intent intent = getIntent();
         value = intent.getStringExtra("value");
+        System.out.println(value+ ": this is value.");
         productLists = new ArrayList<>();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -48,24 +53,33 @@ public class ListOfProducts extends AppCompatActivity implements productOnClick 
 
         Products products = retrofit.create(Products.class);
 
-
-        Call<ApplicationData> call = products.getProducts();
+        if(value !=null)
+            call = products.getFilteredProducts(value);
+        else
+            call = products.getProducts();
         call.enqueue(new Callback<ApplicationData>() {
             @Override
-            public void onResponse(Call<ApplicationData> call, Response<ApplicationData> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(ListOfProducts.this, "Failed : " + response.code(), Toast.LENGTH_SHORT).show();
+            public void onResponse(@NonNull Call<ApplicationData> call, @NonNull Response<ApplicationData> response) {
+                if(response.isSuccessful()){
+                    loading.stopShimmer();
+                    loading.setVisibility(View.GONE);
+                    productListViewer.setVisibility(View.VISIBLE);
+                    assert response.body() != null;
+                    productLists = new ArrayList<>(response.body().getProducts());
+                    setRecycleViewAdapter(productLists);
+                }else {
+                    System.out.println("Error to Load");
+                    Toast.makeText(ListOfProducts.this, "Error :" + response.code(), Toast.LENGTH_SHORT).show();
                 }
-                assert response.body() != null;
-                productLists = new ArrayList<>(response.body().getProducts());
-                setRecycleViewAdapter(productLists);
+
+
 
 
             }
 
             @Override
-            public void onFailure(Call<ApplicationData> call, Throwable t) {
-                System.out.println(t.getCause() + t.getLocalizedMessage() + t.toString());
+            public void onFailure(@NonNull Call<ApplicationData> call, @NonNull Throwable t) {
+                System.out.println(t.getCause() + t.getLocalizedMessage());
             }
         });
 
@@ -83,8 +97,20 @@ public class ListOfProducts extends AppCompatActivity implements productOnClick 
     public void onClickAnItem(int position) {
         Intent intent = new Intent(this, SelectedItem.class);
         System.out.println(this.value);
-          intent.putExtra("selectedProduct", productLists.get(position));
+        if(this.value!=null){
+            intent.putExtra("value",this.value);
+            intent.putExtra("selectedProduct", productLists.get(position));
+        }else{
+            intent.putExtra("selectedProduct", productLists.get(position));
+        }
+        startActivity(intent);
+        finish();
+    }
 
+
+
+    public void onBackPressed(){
+        Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         finish();
     }

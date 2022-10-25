@@ -1,5 +1,6 @@
 package com.c1ph3r.c1ph3rkart.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return new MyViewHolder(view, itemOnClick);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ProductListAdapter.MyViewHolder holder, int position) {
         // Decides the no of items to be displayed in the layout.
@@ -43,8 +45,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         // Store the values which are already displayed in some garbage.
         // It is basically a recycler.
 
+        double discountPrice = (productLists.get(position).getDiscountPercentage() / 100 ) * productLists.get(position).getPrice();
         holder.productName.setText(productLists.get(position).getTitle());
-        holder.price.setText( String.valueOf("$ "+productLists.get(position).getPrice()));
+        holder.price.setText( "$ "+ Math.ceil(productLists.get(position).getPrice() - discountPrice));
         holder.ratings.setText(String.valueOf("Ratings: "+productLists.get(position).getRating()));
         Glide.with(context).load(String.valueOf(productLists.get(position).getThumbnail())).into(holder.thumbnailImage);
 
