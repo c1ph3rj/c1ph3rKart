@@ -23,8 +23,18 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.dashboard);
         bottomNav = findViewById(R.id.bottomNavigation);
         Intent intent = getIntent();
-        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions(bottomNav)).commit();
+        String value = intent.getStringExtra("DashBoard");
+        System.out.println(value);
+        Fragment fragment1 = null;
+        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions()).commit();
         bottomNav.setSelectedItemId(R.id.dashboardOptions);
+        if(value==null)
+            fragment1 = new DashboardOptions();
+        else if(value.equals("2")) {
+            bottomNav.setSelectedItemId(R.id.cartDashBoard);
+            fragment1 = new checkoutCart();
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, fragment1).commit();
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
             switch(item.getItemId()){
@@ -34,7 +44,7 @@ public class Dashboard extends AppCompatActivity {
                 case R.id.allProducts:
                     fragment = new allProducts() ;
                     break;
-                case R.id.cartU:
+                case R.id.cartDashBoard:
                     fragment = new checkoutCart();
                     break;
                 case R.id.Settings:
@@ -62,11 +72,7 @@ public class Dashboard extends AppCompatActivity {
         }).show();
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
 
-    }
 
     protected void onResume() {
         super.onResume();

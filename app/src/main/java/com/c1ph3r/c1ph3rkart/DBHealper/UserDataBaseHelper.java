@@ -8,6 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.c1ph3r.c1ph3rkart.Model.userDetail;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDataBaseHelper extends SQLiteOpenHelper {
     SQLiteDatabase userDBRead;
 
@@ -17,7 +22,7 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE userDetails(Id integer PRIMARY KEY AUTOINCREMENT, userName text, password text, eMail text, phoneNumber text)");
+        sqLiteDatabase.execSQL("CREATE TABLE userDetails(Id integer PRIMARY KEY AUTOINCREMENT, userName text, password text, eMail text, phoneNumber text, cart text, orderDetails text)");
     }
 
     @Override
@@ -77,8 +82,37 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         contentValues.put("password", password);
         contentValues.put("phoneNumber", phoneNumber);
         contentValues.put("eMail", eMail);
+        contentValues.put("cart", " ");
+        contentValues.put("orderDetails", " ");
         long insert = userDataBase.insert("userDetails", null, contentValues);
         // returns false if the data does not add on the sqlite DB.
         return insert != -1;
+    }
+
+    public userDetail getUserData(String userName){
+        SQLiteDatabase userDataBase = this.getWritableDatabase();
+        Cursor matchUserName = userDataBase.rawQuery("SELECT * FROM userDetails WHERE userName = ?", new String[]{String.valueOf(userName)});
+        userDetail value = null;
+        matchUserName.moveToFirst();
+        if(matchUserName.getCount()!=0){
+            String id = String.valueOf( matchUserName.getInt(0));
+            String Name = matchUserName.getString(1);
+            String password = matchUserName.getString(2);
+            String eMail = matchUserName.getString(3);
+            String phoneNumber = matchUserName.getString(4);
+            String cart = matchUserName.getString(5);
+            String orderDetails = matchUserName.getString(6);
+            value = new userDetail(id, Name, password, eMail, phoneNumber, cart, orderDetails);
+        }
+        return value;
+    }
+
+    public void updateUserData(String userName, String cart, String orderDetails){
+        SQLiteDatabase userDataBase = this.getWritableDatabase();
+        String[] tableNames = {"Id", "userName","password","eMail","phoneNumber","cart","orderDetails"};
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("cart", cart);
+        contentValues.put("orderDetails", orderDetails);
+        userDataBase.update("userDetails",contentValues,"userName=?",new String[]{userName});
     }
 }

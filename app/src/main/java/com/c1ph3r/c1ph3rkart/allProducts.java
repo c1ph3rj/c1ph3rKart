@@ -87,7 +87,7 @@ public class allProducts extends Fragment implements productOnClick {
 
             cartButton.setOnClickListener(view1 -> {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new checkoutCart()).commit();
-                bottomNav.setSelectedItemId(R.id.cartU);
+                bottomNav.setSelectedItemId(R.id.cartDashBoard);
             });
 
             retrofit = new Retrofit.Builder()

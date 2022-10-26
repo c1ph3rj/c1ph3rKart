@@ -47,4 +47,6 @@
     <dimen name="value280dp">280dp</dimen>
     <dimen name="value4dp">4dp</dimen>
     <dimen name="value8dp">8dp</dimen>
+    <dimen name="value100dp">100dp</dimen>
+    <dimen name="height580dp">580dp</dimen>
 </resources>

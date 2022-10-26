@@ -4,16 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.c1ph3r.c1ph3rkart.Adapter.ProductImagesAdapter;
+import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
+import com.c1ph3r.c1ph3rkart.Model.userDetail;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +39,8 @@ public class SelectedItem extends AppCompatActivity {
     TabLayout tabIndicator;
     Runnable runnable;
     Timer timer;
+    JsonArray Cart;
+    Dialog dialog;
     Handler sliderHandler = new Handler();
 
     @SuppressLint("SetTextI18n")
@@ -85,5 +100,69 @@ public class SelectedItem extends AppCompatActivity {
         }, 3000,3000);
     }
 
+    @SuppressLint("SetTextI18n")
+    void customDialog(){
+            dialog = new Dialog(this);
+            dialog.setContentView(R.layout.add_to_cart_confrim);
+            dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.image_slider_background));
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+            dialog.setCancelable(false);
+            MaterialButton addToCart = dialog.findViewById(R.id.addToCartBtn);
+            MaterialButton cancel = dialog.findViewById(R.id.cancelBtn);
+            TextView productName = dialog.findViewById(R.id.productNameCart);
+            Cart = new JsonArray();
+            SharedPreferences sharedPreferences = getSharedPreferences("userId",MODE_PRIVATE);
+            String userName = sharedPreferences.getString("userName","");
+            productName.setText(productName.getText() + selectedItem.getTitle());
 
+
+            addToCart.setOnClickListener(view -> {
+                if(userName.equals(""))
+                    localCart();
+                else
+                    SQLiteCart(userName, Cart.toString()," ");
+                Toast.makeText(this, "Successfully added to the cart.", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+
+            });
+
+            cancel.setOnClickListener(view -> {
+                dialog.cancel();
+                Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show();
+            });
+
+    }
+
+    private void SQLiteCart(String userName, String cart, String orderDetails) {
+        UserDataBaseHelper userDB = new UserDataBaseHelper(this);
+        userDetail user =  userDB.getUserData(userName);
+        if(user.getCart()!=null)
+            Cart = (JsonArray) JsonParser.parseString(user.getCart());
+        String Value =String.valueOf(Math.round(selectedItem.getId()));
+        Cart.add(Value);
+        userDB.updateUserData(userName, Cart.toString(), orderDetails);
+    }
+
+
+    public void onClickAddToCartInSelectedItems(View view) {
+        customDialog();
+        dialog.show();
+    }
+
+    void localCart(){
+        SharedPreferences sharedPreferences = getSharedPreferences("Cart", Context.MODE_PRIVATE);
+        Cart = (JsonArray) JsonParser.parseString(sharedPreferences.getString("Cart", "none"));
+        String Value =String.valueOf( selectedItem.getId());
+        Cart.add(Value);
+        SharedPreferences.Editor  editor = sharedPreferences.edit();
+        editor.putString("Cart",Cart.toString());
+        editor.apply();
+    }
+
+
+    public void onClickCartBtn(View view) {
+        Intent intent = new Intent(this, Dashboard.class);
+        intent.putExtra("DashBoard", "2");
+        startActivity(intent);
+    }
 }
