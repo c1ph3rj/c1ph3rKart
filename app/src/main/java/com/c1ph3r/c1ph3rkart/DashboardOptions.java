@@ -78,6 +78,5 @@ public class DashboardOptions extends Fragment {
         Intent intent = new Intent(getActivity(), ListOfProducts.class);
         intent.putExtra("value", value);
         startActivity(intent);
-        getActivity().finish();
     }
 }

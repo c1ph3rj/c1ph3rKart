@@ -20,7 +20,7 @@ import java.util.TimerTask;
 
 public class SelectedItem extends AppCompatActivity {
     ProductList selectedItem;
-    String value = "";
+    String value = "",From = "";
     TextView productName, brandName,description, discount, price, priceAfterDiscount, ratings;
     ViewPager productImages;
     TabLayout tabIndicator;
@@ -33,7 +33,6 @@ public class SelectedItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_item);
-        Intent intent = getIntent();
         productName = findViewById(R.id.selectedProductName);
         brandName = findViewById(R.id.selectedProductBrandName);
         description = findViewById(R.id.selectedProductDescription);
@@ -43,8 +42,10 @@ public class SelectedItem extends AppCompatActivity {
         ratings = findViewById(R.id.selectedProductRatings);
         tabIndicator = findViewById(R.id.tabIndicator);
 
+        Intent intent = getIntent();
         selectedItem = (ProductList) intent.getSerializableExtra("selectedProduct");
         value = intent.getStringExtra("value");
+        From = intent.getStringExtra("From");
 
         productImages = findViewById(R.id.productImages);
         ProductImagesAdapter imageAdapter = new ProductImagesAdapter(this, selectedItem.getImages());
@@ -85,14 +86,4 @@ public class SelectedItem extends AppCompatActivity {
     }
 
 
-
-
-    public void onBackPressed() {
-        Intent intent = new Intent(this,ListOfProducts.class);
-        if(!Objects.equals(value, ""))
-            intent.putExtra("value",value);
-        startActivity(intent);
-        timer.cancel();
-        finish();
-    }
 }

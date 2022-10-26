@@ -43,7 +43,6 @@ public class ListOfProducts extends AppCompatActivity implements productOnClick 
         search = findViewById(R.id.searchFieldN);
         Intent intent = getIntent();
         value = intent.getStringExtra("value");
-        System.out.println(value+ ": this is value.");
         productLists = new ArrayList<>();
 
         Retrofit retrofit = new Retrofit.Builder()

@@ -1,5 +1,6 @@
 package com.c1ph3r.c1ph3rkart;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -21,6 +22,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         bottomNav = findViewById(R.id.bottomNavigation);
+        Intent intent = getIntent();
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions(bottomNav)).commit();
         bottomNav.setSelectedItemId(R.id.dashboardOptions);
         bottomNav.setOnItemSelectedListener(item -> {
@@ -60,10 +62,14 @@ public class Dashboard extends AppCompatActivity {
         }).show();
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
 
     protected void onResume() {
         super.onResume();
-        bottomNav.setSelectedItemId(R.id.dashboardOptions);
     }
 }
 

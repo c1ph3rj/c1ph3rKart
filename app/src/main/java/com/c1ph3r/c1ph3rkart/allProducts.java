@@ -3,6 +3,7 @@ package com.c1ph3r.c1ph3rkart;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,20 +24,34 @@ import com.c1ph3r.c1ph3rkart.Adapter.ProductListAdapter;
 import com.c1ph3r.c1ph3rkart.Adapter.productOnClick;
 import com.c1ph3r.c1ph3rkart.Model.ApplicationData;
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
+import com.c1ph3r.c1ph3rkart.retroFitAPICall.Products;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class allProducts extends Fragment implements productOnClick {
     BottomNavigationView bottomNav;
     ImageButton cartButton;
     TextInputEditText search;
-    RequestQueue requestQueue;
+    TextInputLayout searchF;
     RecyclerView productListViewer;
-    ArrayList<ProductList> productLists, filteredProducts;
+    ShimmerFrameLayout loading;
+    Call<ApplicationData> call;
+    Retrofit retrofit;
+    Products products;
+    View view;
+    ArrayList<ProductList> productLists;
 
     public allProducts(BottomNavigationView bottomNav) {
         this.bottomNav = bottomNav;
@@ -47,90 +63,98 @@ public class allProducts extends Fragment implements productOnClick {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_all_products, container, false);
     }
 
     public void onStart() {
         super.onStart();
-        View view = getView();
+        view = getView();
         if(view!= null){
+
             productListViewer = view.findViewById(R.id.productListViewerD);
-            requestQueue = Volley.newRequestQueue(requireActivity());
             cartButton = view.findViewById(R.id.cartButton);
             search = view.findViewById(R.id.searchFieldD);
+            loading = view.findViewById(R.id.loadingScreenD);
+            loading.startShimmer();
+
             cartButton.setOnClickListener(view1 -> {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new checkoutCart()).commit();
                 bottomNav.setSelectedItemId(R.id.cartU);
             });
-            onListOfAllItems();
 
-            search.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl("https://dummyjson.com")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-                }
+            products = retrofit.create(Products.class);
 
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    String value = charSequence.toString().toLowerCase();
-                    filteredProducts = new ArrayList<>();
-                    for (int j = 0;j<productLists.size();j++){
-                        if(productLists.get(j).getBrand().toLowerCase().contains(value))
-                            filteredProducts.add(productLists.get(j));
-                        else if(productLists.get(j).getTitle().toLowerCase().contains(value))
-                            filteredProducts.add(productLists.get(j));
-                    }
-                    ProductListAdapter adapter = new ProductListAdapter(requireActivity(),filteredProducts, allProducts.this);
-                    productListViewer.setAdapter(adapter);
-                    productListViewer.setLayoutManager(new LinearLayoutManager(getActivity()));
+            if(String.valueOf(search.getText()).isEmpty()){
+                call = products.getAllProducts();
+                onListOfAllItems();
+            }
 
-                }
-
-                @Override
-                public void afterTextChanged(Editable editable) {
-
-                }
+            searchF = view.findViewById(R.id.searchFieldLayoutD);
+            searchF.setEndIconOnClickListener(view12 -> {
+                loading.startShimmer();
+                call = products.getSearchedProducts(String.valueOf(search.getText()));
+                onListOfAllItems();
             });
+
         }
 
     }
 
     public void onListOfAllItems(){
-        String url="https://dummyjson.com/Products";
-        JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null,
-                response -> {
-                    try {
-                        Gson gson = new Gson();
-                        String output = String.valueOf(response);
-                        ApplicationData applicationData = gson.fromJson(output, ApplicationData.class);
-                        productLists = new ArrayList<>(applicationData.getProducts());
-                        ProductListAdapter adapter = new ProductListAdapter(requireActivity(),productLists, allProducts.this);
-                        productListViewer.setAdapter(adapter);
-                        productListViewer.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }, error -> {
+        call.enqueue(new Callback<ApplicationData>() {
+            @Override
+            public void onResponse(@NonNull Call<ApplicationData> call, @NonNull Response<ApplicationData> response) {
+                if(response.isSuccessful()){
+                    loading.stopShimmer();
+                    loading.setVisibility(View.GONE);
+                    System.out.println(search.getText());
+                    productListViewer.setVisibility(View.VISIBLE);
+                    assert response.body() != null;
+                    productLists = new ArrayList<>(response.body().getProducts());
+                    setRecycleViewAdapter(productLists);
+                }else {
+                    System.out.println("Error to Load");
+                    Toast.makeText(requireActivity(), "Error :" + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(@NonNull Call<ApplicationData> call, @NonNull Throwable t) {
+                System.out.println(t.getCause() + t.getLocalizedMessage());
+            }
         });
-        requestQueue.add(request);
+
+    }
+
+    private void setRecycleViewAdapter(ArrayList<ProductList> productLists) {
+        try{
+            ProductListAdapter adapter = new ProductListAdapter(requireActivity(),productLists, allProducts.this);
+            productListViewer.setAdapter(adapter);
+            productListViewer.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     @Override
     public void onClickAnItem(int position) {
         Intent intent = new Intent(requireActivity(), SelectedItem.class);
-        if(filteredProducts!=null)
-            intent.putExtra("selectedProduct", filteredProducts.get(position));
-        else
-            intent.putExtra("selectedProduct", productLists.get(position));
+        intent.putExtra("selectedProduct", productLists.get(position));
+        intent.putExtra("From", "0");
         startActivity(intent);
-        requireActivity().finish();
     }
 
 

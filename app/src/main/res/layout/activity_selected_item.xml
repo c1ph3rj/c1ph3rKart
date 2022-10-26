@@ -106,7 +106,6 @@
                 android:background="@drawable/image_slider_background"
                 android:layout_width="@dimen/CommonWidth"
                 android:padding="@dimen/value8dp"
-                android:stretchColumns="1"
                 android:elevation="@dimen/value8dp"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
@@ -130,6 +129,7 @@
 
                     <TextView
                         android:id="@+id/selectedProductName"
+                        android:layout_width="@dimen/width180dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/josefin_sans_medium"
                         android:textColor="@color/color3"
@@ -163,7 +163,7 @@
 
                     <TextView
                         android:id="@+id/selectedProductBrandName"
-                        android:layout_width="match_parent"
+                        android:layout_width="@dimen/width180dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/josefin_sans_bold"
                         android:textColor="@color/color3"
@@ -321,10 +321,11 @@
                     <TextView
                         android:id="@+id/selectedProductDescription"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/value8dp"
+                        android:layout_marginStart="@dimen/padding12dp"
                         android:layout_marginEnd="@dimen/value8dp"
                         android:fontFamily="@font/josefin_sans_medium"
                         android:layout_span="2"
+                        android:layout_width="@dimen/width180dp"
                         android:textColor="@color/color3"
                         android:textSize="@dimen/normalTextSize"
                         app:layout_constraintBottom_toBottomOf="parent"
