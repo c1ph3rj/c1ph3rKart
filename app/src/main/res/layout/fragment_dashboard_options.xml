@@ -12,8 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="@dimen/CommonWidth"
-        android:layout_height="60dp"
-        android:layout_margin="20dp"
+        android:layout_height="@dimen/value60dp"
+        android:layout_margin="@dimen/marginValue20dp"
         android:background="@drawable/top_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
             android:id="@+id/headingAtDashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/value16dp"
             android:fontFamily="@font/aclonica_regular"
             android:shadowColor="@color/white"
             android:shadowDx="2"
@@ -32,7 +32,7 @@
             android:shadowRadius="2"
             android:text="@string/app_name"
             android:textColor="@color/color4"
-            android:textSize="20sp"
+            android:textSize="@dimen/text20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +51,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.529"
             app:srcCompat="@drawable/ic_baseline_search_24"
-            app:tint="@color/color4" />
+            app:tint="@color/color4"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -59,26 +60,27 @@
         android:id="@+id/categoriesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="@dimen/value416dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/categories_string"
         android:textColor="@color/color2"
         android:textSize="@dimen/normalTextSize"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="428dp"
+        android:layout_marginBottom="@dimen/value84dp"
         android:background="@drawable/shape_of_image"
         android:padding="4dp"
         app:alignmentMode="alignMargins"
         app:columnCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlSymmetry">
 
@@ -94,7 +96,7 @@
             app:cornerRadius="@dimen/buttonCornerRadius"
             app:icon="@drawable/smartphone"
             app:iconGravity="top"
-            app:iconSize="50dp"
+            app:iconSize="@dimen/ic_size"
             app:iconTint="@null"
             app:layout_column="0"
             app:layout_gravity="center"
@@ -105,13 +107,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/color3"
-            android:text="laptop"
+            android:text="@string/laptop_string"
             android:textColor="@color/white"
             android:textSize="@dimen/smallTextSize"
             app:cornerRadius="@dimen/buttonCornerRadius"
             app:icon="@drawable/laptop"
             app:iconGravity="top"
-            app:iconSize="50dp"
+            app:iconSize="@dimen/ic_size"
             app:iconTint="@null"
             app:layout_column="1"
             app:layout_gravity="center"
@@ -128,7 +130,7 @@
             app:cornerRadius="@dimen/buttonCornerRadius"
             app:icon="@drawable/perfume"
             app:iconGravity="top"
-            app:iconSize="50dp"
+            app:iconSize="@dimen/ic_size"
             app:iconTint="@null"
             app:layout_gravity="center" />
 
@@ -143,7 +145,7 @@
             app:cornerRadius="@dimen/buttonCornerRadius"
             app:icon="@drawable/skincare"
             app:iconGravity="top"
-            app:iconSize="50dp"
+            app:iconSize="@dimen/ic_size"
             app:iconTint="@null"
             app:layout_gravity="center" />
 
@@ -159,7 +161,7 @@
             app:cornerRadius="@dimen/buttonCornerRadius"
             app:icon="@drawable/groceries"
             app:iconGravity="top"
-            app:iconSize="50dp"
+            app:iconSize="@dimen/ic_size"
             app:iconTint="@null"
             app:layout_gravity="center" />
 
@@ -175,7 +177,7 @@
             app:icon="@drawable/home_decorations"
 
             app:iconGravity="textTop"
-            app:iconSize="50dp"
+            app:iconSize="@dimen/ic_size"
             app:iconTint="@null"
             app:layout_gravity="center" />
     </androidx.gridlayout.widget.GridLayout>

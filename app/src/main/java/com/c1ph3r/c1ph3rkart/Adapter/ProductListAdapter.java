@@ -21,6 +21,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     Context context;
     ArrayList<ProductList> productLists;
     productOnClick itemOnClick;
+
     public ProductListAdapter(Context context, ArrayList<ProductList> productLists, productOnClick itemOnClick){
         this.context = context;
         this.productLists = productLists;

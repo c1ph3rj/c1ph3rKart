@@ -23,16 +23,22 @@ public class ProductImagesAdapter extends PagerAdapter {
 
     }
 
+    // No of items to be displayed
     @Override
     public int getCount() {
         return images.size();
     }
 
+    // check the view of the object.
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
     }
 
+
+    // Like On Create method.
+    // Used to instantiate items while created.
+    // And returns the image view to the view.
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
@@ -43,6 +49,7 @@ public class ProductImagesAdapter extends PagerAdapter {
         return image;
     }
 
+    // To remove the used items.
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
        container.removeView((ImageView) object);

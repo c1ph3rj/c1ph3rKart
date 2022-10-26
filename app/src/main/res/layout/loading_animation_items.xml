@@ -18,7 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="@dimen/width380dp"
-            android:layout_height="90dp"
+            android:layout_height="@dimen/value90dp"
             android:background="@color/color1"
             >
 
@@ -49,9 +49,9 @@
 
             <TextView
                 android:id="@+id/ratings"
-                android:layout_width="100dp"
+                android:layout_width="@dimen/width100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/value16dp"
                 android:background="@color/color3"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="50dp"
+                android:layout_width="@dimen/width50dp"
                 android:layout_height="wrap_content"
                 android:background="@color/color3"
                 android:textColor="@color/black"

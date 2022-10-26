@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ProductsInTheData">
+    tools:context=".ListOfProducts">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_height="@dimen/value60dp"
+        android:layout_marginTop="@dimen/marginTop10dp"
+        android:layout_marginLeft="@dimen/marginValue20dp"
+        android:layout_marginRight="@dimen/marginValue20dp"
         android:background="@drawable/top_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
             android:id="@+id/headingAtDashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/value16dp"
             android:fontFamily="@font/aclonica_regular"
             android:shadowColor="@color/white"
             android:shadowDx="2"
@@ -32,7 +32,7 @@
             android:shadowRadius="2"
             android:text="@string/app_name"
             android:textColor="@color/color4"
-            android:textSize="20sp"
+            android:textSize="@dimen/text20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -44,8 +44,8 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:backgroundTint="@null"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
+            android:minWidth="@dimen/value48dp"
+            android:minHeight="@dimen/value48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.86"
@@ -54,7 +54,7 @@
             app:layout_constraintVertical_bias="0.529"
             app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
             app:tint="@color/color4"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -63,7 +63,7 @@
         android:layout_height="@dimen/height550dp"
         android:background="@drawable/recycle_viewer_background"
         android:orientation="vertical"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/value8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -138,7 +138,7 @@
             android:id="@+id/searchFieldN"
             android:layout_width="match_parent"
             android:layout_height="@dimen/textFieldHeight"
-            android:hint="search"
+            android:hint="@string/searchFieldText"
             android:textColor="@color/color4" />
 
 

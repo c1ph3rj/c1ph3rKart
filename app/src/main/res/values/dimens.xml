@@ -49,4 +49,17 @@
     <dimen name="value8dp">8dp</dimen>
     <dimen name="value100dp">100dp</dimen>
     <dimen name="height580dp">580dp</dimen>
+    <dimen name="value220dp">220dp</dimen>
+    <dimen name="value60dp">60dp</dimen>
+    <dimen name="marginValue20dp">20dp</dimen>
+    <dimen name="value16dp">16dp</dimen>
+    <dimen name="value48dp">48dp</dimen>
+    <dimen name="text20sp">20sp</dimen>
+    <dimen name="value210dp">210dp</dimen>
+    <dimen name="value156dp">156dp</dimen>
+    <dimen name="value416dp">416dp</dimen>
+    <dimen name="ic_size">50dp</dimen>
+    <dimen name="value84dp">84dp</dimen>
+    <dimen name="value90dp">90dp</dimen>
+    <dimen name="width50dp">50dp</dimen>
 </resources>

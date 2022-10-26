@@ -51,7 +51,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.529"
             app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-            app:tint="@color/color4" />
+            app:tint="@color/color4"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -220,7 +221,7 @@
                         android:layout_marginStart="@dimen/value4dp"
                         android:layout_span="2"
                         android:fontFamily="@font/josefin_sans_bold"
-                        android:text="Price: "
+                        android:text="@string/priceFieldText"
                         android:textColor="@color/color4"
                         android:textSize="@dimen/normalTextSize"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -291,7 +292,8 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.028"
-                        app:drawableRightCompat="@drawable/star" />
+                        app:drawableRightCompat="@drawable/star"
+                        tools:ignore="RtlSymmetry" />
 
 
                 </TableRow>
@@ -345,7 +347,7 @@
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="@dimen/value70dp"
         android:onClick="onClickAddToCartInSelectedItems"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/value16dp"
         android:backgroundTint="@color/color3"
         android:drawableTint="@color/color1"
         android:fontFamily="@font/josefin_sans_bold"

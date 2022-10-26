@@ -5,10 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 
 public class AuthController {
+    // Used to verify the user Login credentials.
     public int userLoginVerification(String userName, String password, UserDataBaseHelper userDB){
         return userDB.verifyTheUser(userName,password);
     }
 
+    // Used to verify the new register Details.
     public int userRegistration(String userName, String password, String confirmPassword, String eMail, String phoneNumber, UserDataBaseHelper userDB){
         try {
             // User Name Verification.
@@ -34,7 +36,7 @@ public class AuthController {
 
 
 
-            // Phone NO verification.
+            // Phone No verification.
             if (!phoneNumber.matches("^[6-9][0-9]{9}$"))
                 return 4;
             else if(!userDB.isPhoneNumberInTheTable(phoneNumber))

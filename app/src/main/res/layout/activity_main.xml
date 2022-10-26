@@ -24,7 +24,7 @@
         android:id="@+id/headingAtSplashScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="@dimen/value220dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/headingAtSplashScreen"
         android:textColor="@color/color1"

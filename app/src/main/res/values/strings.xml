@@ -46,5 +46,12 @@
     <string name="product_description">Description:</string>
     <string name="product_discount">Discount:</string>
     <string name="products_ratings">Ratings:</string>
+    <string name="searchFieldText">search</string>
+    <string name="priceFieldText">Price:</string>
+    <string name="do_you_want_to_add_this_product_to_your_cart_text">Do you want to add this product to your cart ?</string>
+    <string name="product_text">Product:</string>
+    <string name="add_btn_text">Add</string>
+    <string name="cancel_text">cancel</string>
+    <string name="laptop_string">laptop</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
