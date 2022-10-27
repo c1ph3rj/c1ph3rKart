@@ -9,8 +9,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class ListOfProductsHelper extends SQLiteOpenHelper {
@@ -116,7 +122,9 @@ public class ListOfProductsHelper extends SQLiteOpenHelper {
                 String productThumbnail = product.getString(6);
                 String productBrand = product.getString(8);
                 String productDescription = product.getString(9);
-                ArrayList productImages = new ArrayList<>(Collections.singleton(product.getString(7)));
+                String[] img = product.getString(7).split("[,]");
+                ArrayList productImages = new ArrayList(Arrays.asList(img));
+                System.out.println(productImages.get(0) + "\n\n\n\n\n\n");
                 productList.add(new ProductList(productName, productCategory, productPrice, productDiscount, productRatings, productThumbnail, productImages, productBrand, productDescription));
             } while (product.moveToNext());
         }
