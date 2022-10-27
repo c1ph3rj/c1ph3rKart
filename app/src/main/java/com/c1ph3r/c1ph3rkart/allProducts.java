@@ -1,6 +1,8 @@
 package com.c1ph3r.c1ph3rkart;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -27,9 +31,11 @@ import com.c1ph3r.c1ph3rkart.Model.ProductList;
 import com.c1ph3r.c1ph3rkart.retroFitAPICall.Products;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -51,6 +57,8 @@ public class allProducts extends Fragment implements productOnClick {
     Retrofit retrofit;
     Products products;
     View view;
+    Dialog filterMenu;
+    MaterialButton filterBtn;
     ArrayList<ProductList> productLists;
 
     public allProducts(BottomNavigationView bottomNav) {
@@ -84,6 +92,8 @@ public class allProducts extends Fragment implements productOnClick {
             search = view.findViewById(R.id.searchFieldD);
             loading = view.findViewById(R.id.loadingScreenD);
             loading.startShimmer();
+            filterBtn = view.findViewById(R.id.filterBtn);
+
 
             cartButton.setOnClickListener(view1 -> {
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new checkoutCart()).commit();
@@ -111,6 +121,35 @@ public class allProducts extends Fragment implements productOnClick {
 
         }
 
+        filterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterMenuOptions();
+                filterMenu.show();
+                filterMenu.getWindow().getAttributes().windowAnimations = R.style.dialogAnimations;
+                filterMenu.getWindow().setGravity(Gravity.BOTTOM);
+            }
+        });
+
+    }
+
+    private void filterMenuOptions() {
+        filterMenu = new Dialog(getActivity());
+        filterMenu.setContentView(R.layout.filter_layout);
+        filterMenu.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.filter_menu_background));
+        filterMenu.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        MaterialButton apply = filterMenu.findViewById(R.id.applyBtn);
+        MaterialButton cancel = filterMenu.findViewById(R.id.cancelFilterBtn);
+
+
+
+        apply.setOnClickListener(view -> {
+            filterMenu.cancel();
+        });
+
+        cancel.setOnClickListener(view -> {
+            filterMenu.cancel();
+        });
     }
 
     public void onListOfAllItems(){

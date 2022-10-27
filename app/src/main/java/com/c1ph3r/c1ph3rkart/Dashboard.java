@@ -27,10 +27,10 @@ public class Dashboard extends AppCompatActivity {
         System.out.println(value);
         Fragment fragment1 = null;
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions()).commit();
-        bottomNav.setSelectedItemId(R.id.dashboardOptions);
-        if(value==null)
+        if(value==null) {
+            bottomNav.setSelectedItemId(R.id.dashboardOptions);
             fragment1 = new DashboardOptions();
-        else if(value.equals("2")) {
+        }else if(value.equals("2")) {
             bottomNav.setSelectedItemId(R.id.cartDashBoard);
             fragment1 = new checkoutCart();
         }
@@ -76,6 +76,7 @@ public class Dashboard extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
+        bottomNav.setSelectedItemId(R.id.dashboardOptions);
     }
 }
 

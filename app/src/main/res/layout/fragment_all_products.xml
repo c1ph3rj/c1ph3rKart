@@ -136,9 +136,43 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productListViewerD"
             android:layout_width="match_parent"
+            android:background="@drawable/recycle_viewer_background"
             android:layout_height="@dimen/height480dp"
             android:layout_gravity="center"
             android:padding="@dimen/padding10dp"
             android:visibility="gone" />
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/filterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:elevation="@dimen/elevationProductItem"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:text="@string/filter_Btn_text"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/color3"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.890"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.890" />
+
+    <ScrollView
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/filterBtn"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

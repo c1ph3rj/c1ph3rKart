@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.google.android.material.button.MaterialButton;
 public class DashboardOptions extends Fragment {
     MaterialButton  laptops, fragrances, skinCare, groceries, homeDecorations;
     Button smartPhone;
+    ViewPager offers;
     BottomNavigationView bottomNav;
     ImageButton searchButton;
     public DashboardOptions(BottomNavigationView bottomNav) {
@@ -52,6 +54,7 @@ public class DashboardOptions extends Fragment {
         fragrances = view.findViewById(R.id.fragrancesBtn);
         skinCare = view.findViewById(R.id.skinCareBtn);
         groceries = view.findViewById(R.id.groceriesBtn);
+        offers = view.findViewById(R.id.Offers);
         homeDecorations = view.findViewById(R.id.homeDecorationsBtn);
 
         smartPhone.setOnClickListener(view12 -> filterData("smartphones"));

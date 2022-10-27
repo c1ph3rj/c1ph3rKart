@@ -182,5 +182,14 @@
             app:layout_gravity="center" />
     </androidx.gridlayout.widget.GridLayout>
 
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="@dimen/CommonWidth"
+        android:layout_height="@dimen/value300dp"
+        android:id="@+id/Offers"
+        app:layout_constraintBottom_toTopOf="@+id/categoriesText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
