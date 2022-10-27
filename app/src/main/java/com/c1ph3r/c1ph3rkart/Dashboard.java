@@ -72,11 +72,14 @@ public class Dashboard extends AppCompatActivity {
         }).show();
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bottomNav.getSelectedItemId();
+    }
 
     protected void onResume() {
         super.onResume();
-        bottomNav.setSelectedItemId(R.id.dashboardOptions);
     }
 }
 

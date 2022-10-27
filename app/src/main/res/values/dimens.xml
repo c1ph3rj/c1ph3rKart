@@ -62,4 +62,7 @@
     <dimen name="value84dp">84dp</dimen>
     <dimen name="value90dp">90dp</dimen>
     <dimen name="width50dp">50dp</dimen>
+    <dimen name="value55dp">55dp</dimen>
+    <dimen name="value50dp">50dp</dimen>
+    <dimen name="margin48dp">48dp</dimen>
 </resources>

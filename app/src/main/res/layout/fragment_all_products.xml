@@ -146,7 +146,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/filterBtn"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/value55dp"
         android:elevation="@dimen/elevationProductItem"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/filter_Btn_text"
@@ -160,19 +160,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.890" />
 
-    <ScrollView
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="72dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clearFilters"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/value55dp"
+        android:text="@string/clear_filters_btn"
+        app:icon="@drawable/ic_baseline_clear_all_24"
+        app:iconTint="@color/color4"
+        android:fontFamily="@font/josefin_sans_semi_bold"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        android:textColor="@color/color4"
+        android:backgroundTint="@color/lightWhite"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/filterBtn"
-        app:layout_constraintHorizontal_bias="0.946"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" />
-    </ScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:elevation="@dimen/value4dp"
+        app:layout_constraintHorizontal_bias="0.160"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.890"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="618dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

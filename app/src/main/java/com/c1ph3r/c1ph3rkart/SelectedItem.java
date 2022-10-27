@@ -165,4 +165,10 @@ public class SelectedItem extends AppCompatActivity {
         intent.putExtra("DashBoard", "2");
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        timer.cancel();
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/filterLayout"
     android:background="@drawable/filter_menu_background"
     android:paddingBottom="20dp">
 
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/josefin_sans_semi_bold"
-        android:text="Filter Options"
+        android:text="@string/filter_options_text"
         android:textColor="@color/color4"
         android:textSize="@dimen/headingTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,10 +24,10 @@
 
 
     <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/materialButtonToggleGroup"
+        android:id="@+id/priceFilter"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height70dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/value4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -37,9 +37,10 @@
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
+            android:id="@+id/lowHigh"
             android:layout_height="wrap_content"
             android:fontFamily="@font/josefin_sans_semi_bold"
-            android:text="Low To High"
+            android:text="@string/low_to_high_text"
             android:textColor="@color/color3"
             android:textSize="14sp" />
 
@@ -47,8 +48,9 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/highLow"
             android:fontFamily="@font/josefin_sans_semi_bold"
-            android:text="High To Low"
+            android:text="@string/high_to_low_text"
             android:textColor="@color/color3"
             android:textSize="14sp" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -58,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/josefin_sans_medium"
-        android:text="Sort By Price:"
+        android:text="@string/sort_by_price_text"
         android:textColor="@color/color4"
         android:textSize="@dimen/normalTextSize"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,9 +72,9 @@
         android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/value8dp"
         android:fontFamily="@font/josefin_sans_medium"
-        android:text="Filter By category:"
+        android:text="@string/filter_by_category_text"
         android:textColor="@color/color4"
         android:textSize="@dimen/normalTextSize"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,15 +88,15 @@
         android:backgroundTint="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:text="By Discounts"
+        android:layout_marginStart="@dimen/margin48dp"
+        android:text="@string/by_discounts_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="@dimen/CommonWidth"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/value50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,26 +121,26 @@
         android:id="@+id/cancelFilterBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
+        android:text="@string/cancel_text"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/applyBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup"
+        app:layout_constraintTop_toBottomOf="@+id/priceFilter"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/applyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apply"
+        android:text="@string/apply_text"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cancelFilterBtn"
-        app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup"
+        app:layout_constraintTop_toBottomOf="@+id/priceFilter"
         app:layout_constraintVertical_bias="0.5" />
 
 

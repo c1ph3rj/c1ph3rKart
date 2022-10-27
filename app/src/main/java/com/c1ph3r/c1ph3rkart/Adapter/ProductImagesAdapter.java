@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.c1ph3r.c1ph3rkart.R;
 
 import java.util.ArrayList;
 
 public class ProductImagesAdapter extends PagerAdapter {
     Context context;
-    ArrayList<Object> images;
+    ArrayList images;
 
-    public ProductImagesAdapter(Context context, ArrayList<Object> images){
+    public ProductImagesAdapter(Context context, ArrayList images){
         this.context = context;
         this.images = images;
 

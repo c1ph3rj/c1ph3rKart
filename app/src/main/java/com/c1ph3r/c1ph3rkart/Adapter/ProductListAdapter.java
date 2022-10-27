@@ -22,7 +22,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     ArrayList<ProductList> productLists;
     productOnClick itemOnClick;
 
-    public ProductListAdapter(Context context, ArrayList<ProductList> productLists, productOnClick itemOnClick){
+    public ProductListAdapter(Context context, ArrayList<ProductList> productLists, productOnClick itemOnClick) {
         this.context = context;
         this.productLists = productLists;
         this.itemOnClick = itemOnClick;
@@ -33,7 +33,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public ProductListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Insert the Recycle viewer layout to the assigned layout
         // Gives look to the Recycle viewer row.
-        LayoutInflater inflater = LayoutInflater.from(context );
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.product_item_layout, parent, false);
         return new MyViewHolder(view, itemOnClick);
     }
@@ -46,10 +46,10 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         // Store the values which are already displayed in some garbage.
         // It is basically a recycler.
 
-        double discountPrice = (productLists.get(position).getDiscountPercentage() / 100 ) * productLists.get(position).getPrice();
+        double discountPrice = (productLists.get(position).getDiscountPercentage() / 100) * productLists.get(position).getPrice();
         holder.productName.setText(productLists.get(position).getTitle());
-        holder.price.setText( "$ "+ Math.ceil(productLists.get(position).getPrice() - discountPrice));
-        holder.ratings.setText(String.valueOf("Ratings: "+productLists.get(position).getRating()));
+        holder.price.setText("$ " + Math.ceil(productLists.get(position).getPrice() - discountPrice));
+        holder.ratings.setText(String.valueOf("Ratings: " + productLists.get(position).getRating()));
         Glide.with(context).load(String.valueOf(productLists.get(position).getThumbnail())).into(holder.thumbnailImage);
 
 
@@ -61,11 +61,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return productLists.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         // Like OnCreate method.
         // It takes the layout and assign it to the recycle viewer.
         TextView productName, ratings, price;
         ImageView thumbnailImage;
+
         public MyViewHolder(@NonNull View itemView, productOnClick itemOnClick) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
@@ -74,9 +75,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             thumbnailImage = itemView.findViewById(R.id.thumbnailImage);
 
             itemView.setOnClickListener(view -> {
-                if(itemOnClick!=null){
+                if (itemOnClick != null) {
                     int position = getAdapterPosition();
-                    if(position != RecyclerView.NO_POSITION){
+                    if (position != RecyclerView.NO_POSITION) {
                         itemOnClick.onClickAnItem(position);
                     }
                 }

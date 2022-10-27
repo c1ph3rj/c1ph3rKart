@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     void addProductsToDB() {
        ListOfProductsHelper productsDB = new ListOfProductsHelper(this);
         for(ProductList product : productLists){
-            boolean result = productsDB.addProducts(product.getTitle(), product.getCategory(), product.getPrice(), product.getRating(), product.getDiscountPercentage(), product.getThumbnail(), product.getImages().toString());
+            boolean result = productsDB.addProducts(product.getTitle(), product.getCategory(), product.getPrice(), product.getRating(), product.getDiscountPercentage(), product.getThumbnail(), product.getImages().toString(), product.getBrand(), product.getDescription());
             if (result)
                 System.out.println("done");
             else

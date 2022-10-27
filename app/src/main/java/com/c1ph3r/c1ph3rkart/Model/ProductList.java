@@ -14,17 +14,8 @@ public class ProductList implements Serializable {
     private String brand;
     private String category;
     private String thumbnail;
-    ArrayList<Object> images = new ArrayList<Object>();
+    ArrayList<Object> images = new ArrayList<>();
 
-    public ProductList(String productName, String productCategory, float productPrice, float productDiscount, float productRatings, String productThumbnail, ArrayList productImages) {
-        this.title = productName;
-        this.price = productPrice;
-        this.discountPercentage = productDiscount;
-        this.rating = productRatings;
-        this.category = productCategory;
-        this.thumbnail = productThumbnail;
-        this.images = productImages;
-    }
 
 
     // Getter Methods
@@ -114,4 +105,18 @@ public class ProductList implements Serializable {
     public void setThumbnail( String thumbnail ) {
         this.thumbnail = thumbnail;
     }
+
+    public ProductList(String productName, String productCategory, float productPrice, float productDiscount, float productRatings, String productThumbnail, ArrayList productImages, String productBrand, String productDescription) {
+        this.title = productName;
+        this.price = productPrice;
+        this.discountPercentage = productDiscount;
+        this.rating = productRatings;
+        this.category = productCategory;
+        this.thumbnail = productThumbnail;
+        this.images = productImages;
+        this.brand = productBrand;
+        this.description = productDescription;
+    }
+
+
 }

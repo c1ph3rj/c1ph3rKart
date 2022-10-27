@@ -53,5 +53,13 @@
     <string name="add_btn_text">Add</string>
     <string name="cancel_text">cancel</string>
     <string name="laptop_string">laptop</string>
+    <string name="clear_filters_btn">Clear Filters</string>
+    <string name="filter_by_category_text">Filter By category:</string>
+    <string name="sort_by_price_text">Sort By Price:</string>
+    <string name="high_to_low_text">High To Low</string>
+    <string name="low_to_high_text">Low To High</string>
+    <string name="filter_options_text">Filter Options</string>
+    <string name="by_discounts_text">By Discounts</string>
+    <string name="apply_text">Apply</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
