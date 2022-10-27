@@ -16,6 +16,16 @@ public class ProductList implements Serializable {
     private String thumbnail;
     ArrayList<Object> images = new ArrayList<Object>();
 
+    public ProductList(String productName, String productCategory, float productPrice, float productDiscount, float productRatings, String productThumbnail, ArrayList productImages) {
+        this.title = productName;
+        this.price = productPrice;
+        this.discountPercentage = productDiscount;
+        this.rating = productRatings;
+        this.category = productCategory;
+        this.thumbnail = productThumbnail;
+        this.images = productImages;
+    }
+
 
     // Getter Methods
 

@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface Products {
 
-    @GET("/products/category/fragrances")
+    @GET("/products")
     Call<ApplicationData> getProducts();
 
     @GET("/products?limit=100")

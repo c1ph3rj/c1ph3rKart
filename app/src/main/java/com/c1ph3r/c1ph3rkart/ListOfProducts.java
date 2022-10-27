@@ -70,10 +70,6 @@ public class ListOfProducts extends AppCompatActivity implements productOnClick 
                     System.out.println("Error to Load");
                     Toast.makeText(ListOfProducts.this, "Error :" + response.code(), Toast.LENGTH_SHORT).show();
                 }
-
-
-
-
             }
 
             @Override
