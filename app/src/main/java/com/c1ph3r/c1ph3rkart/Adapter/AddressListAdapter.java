@@ -5,16 +5,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.c1ph3r.c1ph3rkart.AddAddress;
 import com.c1ph3r.c1ph3rkart.Model.AddressDetails;
-import com.c1ph3r.c1ph3rkart.Model.ProductList;
 import com.c1ph3r.c1ph3rkart.R;
 
 import java.util.ArrayList;
@@ -49,7 +45,7 @@ public class AddressListAdapter extends RecyclerView.Adapter<AddressListAdapter.
         // It is basically a recycler.
 
         holder.Name.setText(addressList.get(position).getName());
-        holder.Address.setText(addressList.get(position).getHouseNo() + ",\n" + addressList.get(position).getStreetName() + ",\n"+ addressList.get(position).getState() + ",\n" + addressList.get(position).getPinCode() + ".");
+        holder.Address.setText(addressList.get(position).getHouseNo() + ",\n" + addressList.get(position).getStreetName() + ",\n" + addressList.get(position).getState() + ",\n" + addressList.get(position).getPinCode() + ".");
         holder.PhoneNumber.setText(addressList.get(position).getPhoneNumber());
     }
 

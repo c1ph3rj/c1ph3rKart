@@ -1,8 +1,5 @@
 package com.c1ph3r.c1ph3rkart;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -16,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.c1ph3r.c1ph3rkart.Adapter.ProductImagesAdapter;
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
@@ -24,18 +23,15 @@ import com.c1ph3r.c1ph3rkart.Model.userDetail;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonNull;
 import com.google.gson.JsonParser;
 
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SelectedItem extends AppCompatActivity {
     ProductList selectedItem;
-    String value = "",From = "";
-    TextView productName, brandName,description, discount, price, priceAfterDiscount, ratings;
+    String value = "", From = "";
+    TextView productName, brandName, description, discount, price, priceAfterDiscount, ratings;
     ViewPager productImages;
     TabLayout tabIndicator;
     Runnable runnable;
@@ -74,20 +70,20 @@ public class SelectedItem extends AppCompatActivity {
         ratings.setText(String.valueOf(selectedItem.getRating()));
         description.setText(description.getText() + selectedItem.getDescription());
         discount.setText(discount.getText() + String.valueOf(selectedItem.getDiscountPercentage()) + "%");
-        price.setText("$ "+ price.getText()+ String.valueOf(selectedItem.getPrice()));
+        price.setText("$ " + price.getText() + selectedItem.getPrice());
         price.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        double discountPrice = (selectedItem.getDiscountPercentage() / 100 ) * selectedItem.getPrice();
-        priceAfterDiscount.setText( "$ "+String.valueOf(Math.ceil(selectedItem.getPrice() - discountPrice)) + " only !  ");
+        double discountPrice = (selectedItem.getDiscountPercentage() / 100) * selectedItem.getPrice();
+        priceAfterDiscount.setText("$ " + Math.ceil(selectedItem.getPrice() - discountPrice) + " only !  ");
 
 
         runnable = () -> {
             int position = productImages.getCurrentItem();
             System.out.println(position);
-            if(position == selectedItem.getImages().size()-1) {
+            if (position == selectedItem.getImages().size() - 1) {
                 System.out.println(position + "in statement.");
                 position = 0;
                 productImages.setCurrentItem(position);
-            }else
+            } else
                 productImages.setCurrentItem(position + 1, true);
 
         };
@@ -98,53 +94,54 @@ public class SelectedItem extends AppCompatActivity {
             public void run() {
                 sliderHandler.post(runnable);
             }
-        }, 3000,3000);
+        }, 3000, 3000);
     }
 
     @SuppressLint("SetTextI18n")
-    void customDialog(){
-            dialog = new Dialog(this);
-            dialog.setContentView(R.layout.add_to_cart_confrim);
-            dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.image_slider_background));
-            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
-            dialog.setCancelable(false);
-            MaterialButton addToCart = dialog.findViewById(R.id.addToCartBtn);
-            MaterialButton cancel = dialog.findViewById(R.id.cancelBtn);
-            TextView productName = dialog.findViewById(R.id.productNameCart);
-            Cart = new JsonArray();
-            SharedPreferences sharedPreferences = getSharedPreferences("userId",MODE_PRIVATE);
-            String userName = sharedPreferences.getString("userName","");
-            productName.setText(productName.getText() + selectedItem.getTitle());
+    void customDialog() {
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.add_to_cart_confrim);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.image_slider_background));
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        dialog.setCancelable(false);
+        MaterialButton addToCart = dialog.findViewById(R.id.addToCartBtn);
+        MaterialButton cancel = dialog.findViewById(R.id.cancelBtn);
+        TextView productName = dialog.findViewById(R.id.productNameCart);
+        Cart = new JsonArray();
+        SharedPreferences sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
+        String userName = sharedPreferences.getString("userName", "");
+        productName.setText(productName.getText() + selectedItem.getTitle());
 
 
-            addToCart.setOnClickListener(view -> {
-                if(userName.equals("")) {
-                    localCart();
-                }else{
-                    SQLiteCart(userName, Cart.toString(), " ");
-                }
-                Toast.makeText(this, "Successfully added to the cart.", Toast.LENGTH_SHORT).show();
-                dialog.cancel();
+        addToCart.setOnClickListener(view -> {
+            if (userName.equals("")) {
+                localCart();
+            } else {
+                SQLiteCart(userName, Cart.toString(), " ");
+            }
+            Toast.makeText(this, "Successfully added to the cart.", Toast.LENGTH_SHORT).show();
+            dialog.cancel();
 
-            });
+        });
 
-            cancel.setOnClickListener(view -> {
-                dialog.cancel();
-                Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show();
-            });
+        cancel.setOnClickListener(view -> {
+            dialog.cancel();
+            Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show();
+        });
 
     }
 
     private void SQLiteCart(String userName, String cart, String orderDetails) {
         UserDataBaseHelper userDB = new UserDataBaseHelper(this);
-        userDetail user =  userDB.getUserData(userName);
-        String Value =String.valueOf(Math.round(selectedItem.getId()));
-        try{
-            if(!user.getCart().isEmpty())
+        userDetail user = userDB.getUserData(userName);
+        String Value = String.valueOf(Math.round(selectedItem.getId()));
+        try {
+            if (!user.getCart().isEmpty()) {
                 Cart = (JsonArray) JsonParser.parseString(user.getCart());
-            else
-            Cart.add(Value);
-        }catch(Exception e){
+                Cart.add(Value);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
             Cart.add(Value);
         }
         userDB.updateUserData(userName, Cart.toString(), orderDetails);
@@ -156,18 +153,18 @@ public class SelectedItem extends AppCompatActivity {
         dialog.show();
     }
 
-    void localCart(){
+    void localCart() {
         SharedPreferences sharedPreferences = getSharedPreferences("Cart", Context.MODE_PRIVATE);
-        if(!sharedPreferences.getString("Cart", "none").equals("none")) {
+        if (!sharedPreferences.getString("Cart", "none").equals("none")) {
             Cart = JsonParser.parseString(sharedPreferences.getString("Cart", "none")).getAsJsonArray();
             String Value = String.valueOf(Math.round(selectedItem.getId()));
             Cart.add(Value);
-        }else{
+        } else {
             String Value = String.valueOf(Math.round(selectedItem.getId()));
             Cart.add(Value);
         }
-        SharedPreferences.Editor  editor = sharedPreferences.edit();
-        editor.putString("Cart",Cart.toString());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Cart", Cart.toString());
         System.out.println(Cart.toString());
         editor.apply();
     }

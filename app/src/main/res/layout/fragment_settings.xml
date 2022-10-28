@@ -66,11 +66,10 @@
             android:textSize="@dimen/normalTextSize"
             android:fontFamily="@font/josefin_sans_semi_bold"
             android:padding="@dimen/padding10dp"
-            android:drawableStart="@drawable/user_ic"
             android:drawablePadding="@dimen/value4dp"
             app:drawableTint="@color/color4"
-            android:text="User Details"
-            />
+            android:text="@string/user_details_text"
+            app:drawableStartCompat="@drawable/user_ic" />
 
         <TextView
             android:id="@+id/orderHistory"
@@ -79,12 +78,12 @@
             android:textSize="@dimen/normalTextSize"
             android:fontFamily="@font/josefin_sans_semi_bold"
             android:padding="@dimen/padding10dp"
-            android:drawableStart="@drawable/ic_baseline_history_24"
             android:drawablePadding="@dimen/value4dp"
             app:drawableTint="@color/color4"
             android:layout_height="wrap_content"
-            android:text="Order History"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/order_history_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:drawableStartCompat="@drawable/ic_baseline_history_24" />
 
         <TextView
             android:id="@+id/logout"
@@ -94,11 +93,11 @@
             android:textSize="@dimen/normalTextSize"
             android:fontFamily="@font/josefin_sans_semi_bold"
             android:padding="@dimen/padding10dp"
-            android:drawableStart="@drawable/ic_baseline_logout_24"
             android:drawablePadding="@dimen/value4dp"
             app:drawableTint="@color/color4"
-            android:text="Logout"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/logout_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:drawableStartCompat="@drawable/ic_baseline_logout_24" />
 
     </LinearLayout>
 

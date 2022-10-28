@@ -1,7 +1,5 @@
 package com.c1ph3r.c1ph3rkart.Controller;
 
-import android.database.sqlite.SQLiteDatabase;
-
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 
 public class AuthController {

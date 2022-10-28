@@ -13,26 +13,6 @@ public class AddressDetails {
 
 // Getter Methods
 
-    public float getId() {
-        return Id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getHouseNo() {
-        return houseNo;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public String getState() {
-        return state;
-    }
-
     public AddressDetails(float id, String name, String houseNo, String streetName, String state, String pinCode, String phoneNumber) {
         Id = id;
         this.name = name;
@@ -43,30 +23,50 @@ public class AddressDetails {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getPinCode() {
-        return pinCode;
+    public float getId() {
+        return Id;
     }
-
-// Setter Methods
 
     public void setId(float Id) {
         this.Id = Id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getHouseNo() {
+        return houseNo;
+    }
+
     public void setHouseNo(String houseNo) {
         this.houseNo = houseNo;
+    }
+
+// Setter Methods
+
+    public String getStreetName() {
+        return streetName;
     }
 
     public void setStreetName(String streetName) {
         this.streetName = streetName;
     }
 
+    public String getState() {
+        return state;
+    }
+
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getPinCode() {
+        return pinCode;
     }
 
     public void setPinCode(String pinCode) {

@@ -2,29 +2,31 @@ package com.c1ph3r.c1ph3rkart;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 public class DashboardOptions extends Fragment {
-    MaterialButton  laptops, fragrances, skinCare, groceries, homeDecorations;
+    MaterialButton laptops, fragrances, skinCare, groceries, homeDecorations;
     Button smartPhone;
-    ViewPager offers;
+    TextView offers;
     BottomNavigationView bottomNav;
     ImageButton searchButton;
+
     public DashboardOptions(BottomNavigationView bottomNav) {
         this.bottomNav = bottomNav;
         // Required empty public constructor
     }
+
     public DashboardOptions() {
         // Required empty public constructor
     }
@@ -74,12 +76,14 @@ public class DashboardOptions extends Fragment {
             bottomNav.setSelectedItemId(R.id.allProducts);
         });
 
-
-
+        offers.setOnClickListener(textview -> {
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new allProducts(bottomNav)).commit();
+            bottomNav.setSelectedItemId(R.id.allProducts);
+        });
 
     }
 
-    void filterData(String value){
+    void filterData(String value) {
         Intent intent = new Intent(getActivity(), ListOfProducts.class);
         intent.putExtra("value", value);
         startActivity(intent);

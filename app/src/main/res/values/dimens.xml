@@ -67,4 +67,9 @@
     <dimen name="margin48dp">48dp</dimen>
     <dimen name="value130dp">130dp</dimen>
     <dimen name="value6dp">6dp</dimen>
+    <dimen name="value320dp">320dp</dimen>
+    <dimen name="value450dp">450dp</dimen>
+    <dimen name="value10dp">10dp</dimen>
+    <dimen name="value88dp">88dp</dimen>
+    <dimen name="value44dp">44dp</dimen>
 </resources>

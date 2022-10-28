@@ -16,7 +16,7 @@
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="@dimen/value60dp"
         android:layout_margin="@dimen/marginValue20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/value16dp"
         android:background="@drawable/top_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/value84dp"
         android:background="@drawable/shape_of_image"
-        android:padding="4dp"
+        android:padding="@dimen/value4dp"
         app:alignmentMode="alignMargins"
         app:columnCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -185,14 +185,38 @@
             app:layout_gravity="center" />
     </androidx.gridlayout.widget.GridLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <LinearLayout
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="@dimen/value300dp"
-        android:id="@+id/Offers"
+        android:id="@+id/Of"
         app:layout_constraintBottom_toTopOf="@+id/categoriesText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/buttonCornerRadius"
+            app:cardElevation="@dimen/value10dp"
+            app:cardPreventCornerOverlap="true"
+            >
+
+            <TextView
+                android:id="@+id/Offers"
+                android:scaleType="centerCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/headingTextSize"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/josefin_sans_regular"
+                android:elevation="@dimen/value4dp"
+                android:text="@string/festival_sale_n_50_off"
+                android:background="@drawable/card_background" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

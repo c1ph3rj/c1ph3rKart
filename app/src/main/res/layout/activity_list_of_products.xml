@@ -116,7 +116,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/value8dp"
         android:textColorHint="@color/color3"
         app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
         app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
@@ -147,7 +147,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/filterBtn"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/value55dp"
         android:elevation="@dimen/elevationProductItem"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/filter_Btn_text"

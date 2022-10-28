@@ -127,7 +127,7 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         userDataBase.update("userDetails", contentValues, "userName=?", new String[]{userName});
     }
 
-    public boolean addAddress(String userName, String name, String houseNo, String streetName, String state, String pinCode, String phoneNumber){
+    public boolean addAddress(String userName, String name, String houseNo, String streetName, String state, String pinCode, String phoneNumber) {
         SQLiteDatabase userDataBase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
@@ -141,13 +141,13 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    public ArrayList<AddressDetails> getAddress(String userName){
-        ArrayList <AddressDetails> addressList;
+    public ArrayList<AddressDetails> getAddress(String userName) {
+        ArrayList<AddressDetails> addressList;
         addressList = new ArrayList<>();
         SQLiteDatabase userAddressDB = this.getReadableDatabase();
-        Cursor address = userAddressDB.rawQuery("SELECT * FROM "+userName + "_Address",null);
+        Cursor address = userAddressDB.rawQuery("SELECT * FROM " + userName + "_Address", null);
         address.moveToFirst();
-        do{
+        do {
             float id = address.getFloat(0);
             String name = address.getString(1);
             String houseNo = address.getString(2);
@@ -155,8 +155,8 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
             String state = address.getString(4);
             String pinCode = address.getString(5);
             String phoneNumber = address.getString(6);
-            addressList.add(new AddressDetails(id, name,houseNo, streetName, state, pinCode, phoneNumber));
-        }while(address.moveToNext());
+            addressList.add(new AddressDetails(id, name, houseNo, streetName, state, pinCode, phoneNumber));
+        } while (address.moveToNext());
         return addressList;
     }
 }

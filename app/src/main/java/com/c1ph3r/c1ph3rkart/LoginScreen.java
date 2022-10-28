@@ -1,7 +1,5 @@
 package com.c1ph3r.c1ph3rkart;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,15 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.c1ph3r.c1ph3rkart.Controller.AuthController;
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.gson.JsonParser;
 
 public class LoginScreen extends AppCompatActivity {
     TextInputEditText userName, password;
     AuthController verifyUser;
     UserDataBaseHelper userDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +31,8 @@ public class LoginScreen extends AppCompatActivity {
 
     public void onClickLoginBtn(View view) {
         userDB = new UserDataBaseHelper(this);
-        int result = verifyUser.userLoginVerification(String.valueOf(userName.getText()),String.valueOf(password.getText()),userDB);
-        switch (result){
+        int result = verifyUser.userLoginVerification(String.valueOf(userName.getText()), String.valueOf(password.getText()), userDB);
+        switch (result) {
             case 1:
                 Toast.makeText(this, "userName or password Incorrect", Toast.LENGTH_SHORT).show();
                 break;
@@ -43,7 +43,7 @@ public class LoginScreen extends AppCompatActivity {
                 Intent intent = new Intent(this, Dashboard.class);
                 startActivity(intent);
                 SharedPreferences Cart = getSharedPreferences("Cart", Context.MODE_PRIVATE);
-                if(!Cart.getString("Cart", "none").equals("none")) {
+                if (!Cart.getString("Cart", "none").equals("none")) {
                     userDB.updateUserData(String.valueOf(userName.getText()), Cart.getString("Cart", "none"), "");
                     SharedPreferences.Editor editCart = Cart.edit();
                     editCart.clear();
@@ -53,7 +53,7 @@ public class LoginScreen extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("userName", String.valueOf(userName.getText()));
                 editor.apply();
-                Toast.makeText(this, "Welcome " + userName.getText() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Welcome " + userName.getText(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -62,8 +62,8 @@ public class LoginScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onBackPressed(){
-        Intent intent = new Intent (this , Dashboard.class);
+    public void onBackPressed() {
+        Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
     }
 

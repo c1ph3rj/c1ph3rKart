@@ -4,15 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.c1ph3r.c1ph3rkart.Adapter.ProductListAdapter;
 import com.c1ph3r.c1ph3rkart.Adapter.productOnClick;
@@ -22,15 +21,11 @@ import com.c1ph3r.c1ph3rkart.Model.ProductList;
 import com.c1ph3r.c1ph3rkart.Model.userDetail;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 
-import org.json.JSONArray;
-
-import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.zip.CheckedOutputStream;
 
 public class checkoutCart extends Fragment implements productOnClick {
     View view;
@@ -60,32 +55,41 @@ public class checkoutCart extends Fragment implements productOnClick {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_checkout_cart, container, false);
 
-        if (view != null) {
-            listOfProducts = new ListOfProductsHelper(requireActivity());
-            cartList = view.findViewById(R.id.cartListViewerC);
-            loading = view.findViewById(R.id.loadingScreenC);
-            checkout = view.findViewById(R.id.proceedToBuy);
+        try {
+            if (view != null) {
+                listOfProducts = new ListOfProductsHelper(requireActivity());
+                cartList = view.findViewById(R.id.cartListViewerC);
+                loading = view.findViewById(R.id.loadingScreenC);
+                checkout = view.findViewById(R.id.proceedToBuy);
 
-            SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("userId", Context.MODE_PRIVATE);
-            userName = sharedPreferences.getString("userName", "");
-            if (userName.equals("")) {
-                localCart();
-            } else
-                SQLCart(userName);
+                SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("userId", Context.MODE_PRIVATE);
+                userName = sharedPreferences.getString("userName", "");
+                if (userName.equals("")) {
+                    localCart();
+                } else
+                    SQLCart(userName);
 
-            checkout.setOnClickListener(view -> {
-                Intent intent;
-                if(!(cartSP.size()==0)){
-                    if(userName.equals("")) {
-                        Toast.makeText(requireActivity(), "Login To Continue", Toast.LENGTH_SHORT).show();
-                        intent = new Intent(requireActivity(), LoginScreen.class);
-                    }else{
-                        intent = new Intent(requireActivity(), ConfirmToBuy.class);
+                checkout.setOnClickListener(view -> {
+                    try {
+                        Intent intent;
+                        if (!(cartSP.size() == 0)) {
+                            if (userName.equals("")) {
+                                Toast.makeText(requireActivity(), "Login To Continue", Toast.LENGTH_SHORT).show();
+                                intent = new Intent(requireActivity(), LoginScreen.class);
+                            } else {
+                                intent = new Intent(requireActivity(), ConfirmToBuy.class);
+                            }
+                            startActivity(intent);
+                        } else
+                            Toast.makeText(requireActivity(), "Your Cart is Empty!", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(requireActivity(), "Your Cart is Empty!", Toast.LENGTH_SHORT).show();
+                        System.out.println(e + " CheckoutCart");
                     }
-                    startActivity(intent);
-                }else
-                    Toast.makeText(requireActivity(), "Your Cart is Empty!", Toast.LENGTH_SHORT).show();
-            });
+                });
+            }
+        } catch (Exception e) {
+            System.out.println(e + "checkoutCart");
         }
 
         return view;
@@ -96,29 +100,31 @@ public class checkoutCart extends Fragment implements productOnClick {
             userData = new UserDataBaseHelper(requireActivity());
             user = userData.getUserData(userName);
             cartSP = JsonParser.parseString(user.getCart()).getAsJsonArray();
-            if(!cartSP.isJsonNull()){
+            if (!cartSP.isJsonNull()) {
                 cart = listOfProducts.getProductByID(cartSP);
                 setRecycleViewAdapter(cart);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             loading.setVisibility(View.GONE);
             Toast.makeText(requireActivity(), "Cart is Empty.", Toast.LENGTH_SHORT).show();
-            System.out.println(e);
+            System.out.println(e + "checkoutCart");
         }
     }
 
     private void localCart() {
-        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("Cart", Context.MODE_PRIVATE);
-        if (!sharedPreferences.getString("Cart", "none").equals("none")) {
-            cartSP = JsonParser.parseString(sharedPreferences.getString("Cart", "")).getAsJsonArray();
-            cart = listOfProducts.getProductByID(cartSP);
-            setRecycleViewAdapter(cart);
-        } else {
-            loading.setVisibility(View.GONE);
-            Toast.makeText(requireActivity(), "Cart is empty", Toast.LENGTH_SHORT).show();
+        try {
+            SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("Cart", Context.MODE_PRIVATE);
+            if (!sharedPreferences.getString("Cart", "none").equals("none")) {
+                cartSP = JsonParser.parseString(sharedPreferences.getString("Cart", "")).getAsJsonArray();
+                cart = listOfProducts.getProductByID(cartSP);
+                setRecycleViewAdapter(cart);
+            } else {
+                loading.setVisibility(View.GONE);
+                Toast.makeText(requireActivity(), "Cart is empty", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            System.out.println(e + "checkoutCart");
         }
-
-
     }
 
     // Setting the recycle view adapter with the array list.
@@ -131,23 +137,34 @@ public class checkoutCart extends Fragment implements productOnClick {
             cartList.setAdapter(adapter);
             cartList.setLayoutManager(new LinearLayoutManager(getActivity()));
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + "checkoutCart");
         }
     }
 
     // On click of the recycle view item: to display the particular product in a Activity.
     @Override
     public void onClickAnItem(int position) {
-        cart.remove(position);
-        cartSP.remove(position);
-        if (userName.equals("")) {
-            SharedPreferences Cart = requireActivity().getSharedPreferences("Cart", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editCart = Cart.edit();
-            editCart.putString("Cart", cartSP.toString());
-            editCart.apply();
-        }else{
-            userData.updateUserData(userName, cartSP.toString(), " ");
+        MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(requireActivity());
+        alertDialogBuilder.setTitle("C1ph3R Kart!").setMessage("Do you Want to Delete This Item?").setPositiveButton("No", (dialogInterface, i1) -> {
+        }).setNegativeButton("yes", (dialogInterface, i1) -> deleteThisItem(position));
+        alertDialogBuilder.show();
+    }
+
+    private void deleteThisItem(int position) {
+        try {
+            cart.remove(position);
+            cartSP.remove(position);
+            if (userName.equals("")) {
+                SharedPreferences Cart = requireActivity().getSharedPreferences("Cart", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editCart = Cart.edit();
+                editCart.putString("Cart", cartSP.toString());
+                editCart.apply();
+            } else {
+                userData.updateUserData(userName, cartSP.toString(), " ");
+            }
+            setRecycleViewAdapter(cart);
+        } catch (Exception e) {
+            System.out.println(e + "checkoutCart");
         }
-        setRecycleViewAdapter(cart);
     }
 }

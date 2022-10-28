@@ -11,8 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="20dp"
+        android:layout_height="@dimen/value60dp"
+        android:layout_margin="@dimen/marginValue20dp"
         android:background="@drawable/top_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             android:id="@+id/headingAtDashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/value16dp"
             android:fontFamily="@font/aclonica_regular"
             android:shadowColor="@color/white"
             android:shadowDx="2"
@@ -31,7 +31,7 @@
             android:shadowRadius="2"
             android:text="@string/app_name"
             android:textColor="@color/color4"
-            android:textSize="20sp"
+            android:textSize="@dimen/text20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -73,7 +73,7 @@
             <LinearLayout
                 android:layout_width="@dimen/CommonWidth"
                 android:orientation="vertical"
-                android:padding="4dp"
+                android:padding="@dimen/value4dp"
                 android:gravity="center"
                 android:background="@drawable/image_slider_background"
                 android:layout_height="wrap_content">
@@ -99,9 +99,9 @@
                     app:tabIndicatorHeight="0dp"
                     app:tabBackground="@drawable/tab_selector"
                     app:tabMaxWidth="16dp"
-                    android:layout_margin="4dp"
+                    android:layout_margin="@dimen/value4dp"
                     android:backgroundTint="@color/white"
-                    android:layout_height="10dp"/>
+                    android:layout_height="@dimen/value10dp"/>
 
             </LinearLayout>
             <TableLayout
@@ -110,7 +110,7 @@
                 android:layout_width="@dimen/CommonWidth"
                 android:padding="@dimen/value8dp"
                 android:elevation="@dimen/value8dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/value10dp"
                 android:layout_height="wrap_content">
 
                 <TableRow

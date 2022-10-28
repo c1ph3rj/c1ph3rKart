@@ -65,5 +65,24 @@
     <string name="address_text">Address:</string>
     <string name="name_text">Name</string>
     <string name="confirm_text">Confirm</string>
+    <string name="total_text">Total :</string>
+    <string name="price_after_discount">Price After discount:</string>
+    <string name="total_cost">Total Cost:</string>
+    <string name="address">Address :</string>
+    <string name="user_details_text">User Details</string>
+    <string name="order_history_text">Order History</string>
+    <string name="logout_text">Logout</string>
+    <string name="choose_your_address_text">Choose your address:</string>
+    <string name="add_new_address_btn_text">Add New Address</string>
+    <string name="one_more_step_left_text">One More Step Left:</string>
+    <string name="order_confirmation_text">Order Confirmation:</string>
+    <string name="textview_price">TextView</string>
+    <string name="textview_discountPrice">TextView</string>
+    <string name="house_no">House No</string>
+    <string name="streetName">StreetName</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="state">State</string>
+    <string name="add_new_address">Add New Address:</string>
+    <string name="festival_sale_n_50_off">Festival Sale\n 50% off</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -49,7 +49,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         double discountPrice = (productLists.get(position).getDiscountPercentage() / 100) * productLists.get(position).getPrice();
         holder.productName.setText(productLists.get(position).getTitle());
         holder.price.setText("$ " + Math.ceil(productLists.get(position).getPrice() - discountPrice));
-        holder.ratings.setText(String.valueOf("Ratings: " + productLists.get(position).getRating()));
+        holder.ratings.setText("Ratings: " + productLists.get(position).getRating());
         Glide.with(context).load(String.valueOf(productLists.get(position).getThumbnail())).into(holder.thumbnailImage);
 
 

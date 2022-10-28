@@ -1,13 +1,12 @@
 package com.c1ph3r.c1ph3rkart;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.google.android.material.button.MaterialButton;
@@ -18,6 +17,7 @@ public class AddAddress extends AppCompatActivity {
     MaterialButton submit, cancel;
     String userName;
     UserDataBaseHelper userDB = new UserDataBaseHelper(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,28 +33,25 @@ public class AddAddress extends AppCompatActivity {
         cancel = findViewById(R.id.cancelNewAdd);
 
         SharedPreferences sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
-        userName = sharedPreferences.getString("userName","");
+        userName = sharedPreferences.getString("userName", "");
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean result = userDB.addAddress(userName,name.getText().toString(),houseNo.getText().toString(), streetView.getText().toString(), state.getText().toString(),pinCode.getText().toString(), phoneNumber.getText().toString());
-                if(result){
+                boolean result = userDB.addAddress(userName, name.getText().toString(), houseNo.getText().toString(), streetView.getText().toString(), state.getText().toString(), pinCode.getText().toString(), phoneNumber.getText().toString());
+                if (result) {
                     Toast.makeText(AddAddress.this, "successfully added.", Toast.LENGTH_SHORT).show();
-                }else
+                } else
                     Toast.makeText(AddAddress.this, "Failed to add.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AddAddress.this, ConfirmToBuy.class);
                 startActivity(intent);
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AddAddress.this, ConfirmToBuy.class);
-                startActivity(intent);
-            }
+        cancel.setOnClickListener(view -> {
+            Intent intent = new Intent(AddAddress.this, ConfirmToBuy.class);
+            startActivity(intent);
         });
     }
 }
