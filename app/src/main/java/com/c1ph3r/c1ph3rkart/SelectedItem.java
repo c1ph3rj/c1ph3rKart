@@ -138,10 +138,15 @@ public class SelectedItem extends AppCompatActivity {
     private void SQLiteCart(String userName, String cart, String orderDetails) {
         UserDataBaseHelper userDB = new UserDataBaseHelper(this);
         userDetail user =  userDB.getUserData(userName);
-        if(!user.getCart().isEmpty())
-            Cart = (JsonArray) JsonParser.parseString(user.getCart());
         String Value =String.valueOf(Math.round(selectedItem.getId()));
-        Cart.add(Value);
+        try{
+            if(!user.getCart().isEmpty())
+                Cart = (JsonArray) JsonParser.parseString(user.getCart());
+            else
+            Cart.add(Value);
+        }catch(Exception e){
+            Cart.add(Value);
+        }
         userDB.updateUserData(userName, Cart.toString(), orderDetails);
     }
 

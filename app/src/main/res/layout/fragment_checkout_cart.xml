@@ -73,6 +73,7 @@
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/loadingScreenC"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -110,6 +111,15 @@
             android:layout_gravity="center"
             android:padding="@dimen/padding10dp"
             android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="@dimen/value100dp"
+            android:layout_gravity="center|center_horizontal"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/empty"/>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton

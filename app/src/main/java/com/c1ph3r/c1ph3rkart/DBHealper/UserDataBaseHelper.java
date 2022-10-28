@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.c1ph3r.c1ph3rkart.Model.AddressDetails;
 import com.c1ph3r.c1ph3rkart.Model.userDetail;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserDataBaseHelper extends SQLiteOpenHelper {
     SQLiteDatabase userDBRead;
@@ -36,7 +36,7 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
     // To create table to store the Address of the user
     public void createAddressTable(String userName) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        sqLiteDatabase.execSQL("CREATE TABLE " + userName + "_Address (Id integer PRIMARY KEY AUTOINCREMENT, name text, houseNo text, streetName text, city text, state text, pinCode text, addressType text)");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + userName + "_Address (Id integer PRIMARY KEY AUTOINCREMENT, name text, houseNo text, streetName text, state text, pinCode text, phoneNumber text)");
 
     }
 
@@ -125,5 +125,38 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         contentValues.put("cart", cart);
         contentValues.put("orderDetails", orderDetails);
         userDataBase.update("userDetails", contentValues, "userName=?", new String[]{userName});
+    }
+
+    public boolean addAddress(String userName, String name, String houseNo, String streetName, String state, String pinCode, String phoneNumber){
+        SQLiteDatabase userDataBase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        contentValues.put("houseNo", houseNo);
+        contentValues.put("streetName", streetName);
+        contentValues.put("state", state);
+        contentValues.put("pinCode", pinCode);
+        contentValues.put("phoneNumber", phoneNumber);
+        long insert = userDataBase.insert(userName + "_Address", null, contentValues);
+        // returns false if the data does not add on the sqlite DB.
+        return insert != -1;
+    }
+
+    public ArrayList<AddressDetails> getAddress(String userName){
+        ArrayList <AddressDetails> addressList;
+        addressList = new ArrayList<>();
+        SQLiteDatabase userAddressDB = this.getReadableDatabase();
+        Cursor address = userAddressDB.rawQuery("SELECT * FROM "+userName + "_Address",null);
+        address.moveToFirst();
+        do{
+            float id = address.getFloat(0);
+            String name = address.getString(1);
+            String houseNo = address.getString(2);
+            String streetName = address.getString(3);
+            String state = address.getString(4);
+            String pinCode = address.getString(5);
+            String phoneNumber = address.getString(6);
+            addressList.add(new AddressDetails(id, name,houseNo, streetName, state, pinCode, phoneNumber));
+        }while(address.moveToNext());
+        return addressList;
     }
 }

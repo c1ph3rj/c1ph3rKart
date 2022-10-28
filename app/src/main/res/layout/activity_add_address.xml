@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/lightWhite"
+    android:layout_height="match_parent"
+    tools:context=".AddAddress">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="@dimen/CommonWidth"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_login_layout_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameLayoutNewAdd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/user_ic"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameNewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="@string/username_hint"
+                android:maxLength="28"
+                android:singleLine="true"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/HouseNoLayoutNewAdd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/ic_baseline_home_24"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/houseNoNewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="House No"
+                android:inputType="textEmailAddress"
+                android:maxLength="28"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/StreetLayoutNewAdd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:counterTextColor="@color/color4"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/ic_baseline_map_24"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/streetNewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="StreetName"
+                android:inputType="text"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/reEnterPasswordLayoutNewAdd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/password"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pinCodeNewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="Pin Code"
+                android:inputType="text"
+                android:maxLength="6"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/StateFieldLayoutNewAdd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/ic_baseline_mode_standby_24"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/StateFieldNewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="State"
+                android:maxLength="28"
+                android:singleLine="true"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneNumberLayoutNewAdd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/textFieldWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10dp"
+            android:textColorHint="@color/color4"
+            app:boxCornerRadiusBottomEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusBottomStart="@dimen/radiusTextField"
+            app:boxCornerRadiusTopEnd="@dimen/radiusTextField"
+            app:boxCornerRadiusTopStart="@dimen/radiusTextField"
+            app:boxStrokeColor="@color/color4"
+            app:boxStrokeWidth="@dimen/strokeSize"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/color4"
+            app:hintTextColor="@color/color4"
+            app:startIconDrawable="@drawable/ic_baseline_phone_24"
+            app:startIconTint="@color/color4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneNumberNewAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textFieldHeight"
+                android:hint="@string/phone_number_string"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:textColor="@color/color4"
+                android:textSize="@dimen/normalTextSize" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/SubmitBtnNewAdd"
+            android:layout_width="@dimen/btnWidth"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginTop10dp"
+            android:backgroundTint="@color/color4"
+            android:elevation="@dimen/elevationOfLoginLayout"
+            android:onClick="onClickSubmitBtn"
+            android:text="@string/submit_text"
+            android:textColor="@color/white"
+            app:cornerRadius="@dimen/buttonCornerRadius" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/josefin_sans_medium"
+        android:text="Add New Address:"
+        android:textColor="@color/color4"
+        android:textSize="@dimen/text20sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.831" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancelNewAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_text"
+        android:textColor="@color/color4"
+        android:fontFamily="@font/josefin_sans_medium"
+        android:elevation="@dimen/value4dp"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

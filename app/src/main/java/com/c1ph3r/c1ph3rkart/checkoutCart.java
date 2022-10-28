@@ -27,6 +27,7 @@ import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.zip.CheckedOutputStream;
@@ -74,13 +75,16 @@ public class checkoutCart extends Fragment implements productOnClick {
 
             checkout.setOnClickListener(view -> {
                 Intent intent;
-                if(userName.equals("")){
-                    Toast.makeText(requireActivity(), "Login To Continue", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(requireActivity(), LoginScreen.class);
-                }else{
-                    intent = new Intent(requireActivity(), ConfirmToBuy.class);
-                }
-                startActivity(intent);
+                if(!(cartSP.size()==0)){
+                    if(userName.equals("")) {
+                        Toast.makeText(requireActivity(), "Login To Continue", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(requireActivity(), LoginScreen.class);
+                    }else{
+                        intent = new Intent(requireActivity(), ConfirmToBuy.class);
+                    }
+                    startActivity(intent);
+                }else
+                    Toast.makeText(requireActivity(), "Your Cart is Empty!", Toast.LENGTH_SHORT).show();
             });
         }
 
@@ -88,11 +92,19 @@ public class checkoutCart extends Fragment implements productOnClick {
     }
 
     private void SQLCart(String userName) {
-        userData = new UserDataBaseHelper(requireActivity());
-        user = userData.getUserData(userName);
-        cartSP = JsonParser.parseString(user.getCart()).getAsJsonArray();
-        cart = listOfProducts.getProductByID(cartSP);
-        setRecycleViewAdapter(cart);
+        try {
+            userData = new UserDataBaseHelper(requireActivity());
+            user = userData.getUserData(userName);
+            cartSP = JsonParser.parseString(user.getCart()).getAsJsonArray();
+            if(!cartSP.isJsonNull()){
+                cart = listOfProducts.getProductByID(cartSP);
+                setRecycleViewAdapter(cart);
+            }
+        }catch (Exception e) {
+            loading.setVisibility(View.GONE);
+            Toast.makeText(requireActivity(), "Cart is Empty.", Toast.LENGTH_SHORT).show();
+            System.out.println(e);
+        }
     }
 
     private void localCart() {

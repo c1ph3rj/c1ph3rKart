@@ -20,34 +20,67 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43">
 
+        <LinearLayout
+            android:id="@+id/AddressLayout"
+            android:layout_width="@dimen/value300dp"
+            android:layout_height="@dimen/value416dp"
+            android:layout_marginBottom="88dp"
+            android:background="@drawable/address_list_background"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/userAddress"
+                android:layout_height="match_parent"
+                android:background="@drawable/address_list_background"
+                android:padding="@dimen/padding12dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/josefin_sans_medium"
+            android:text="Choose your address: "
+            android:textColor="@color/color4"
+            android:textSize="@dimen/normalTextSize"
+            app:layout_constraintBottom_toTopOf="@+id/AddressLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.177"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.727" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addAddressToUserDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Address"
+            android:fontFamily="@font/josefin_sans_medium"
+            app:cornerRadius="@dimen/buttonCornerRadius"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/color3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddressLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/color4"
-        android:fontFamily="@font/josefin_sans_medium"
-        android:text="Click To Confirm"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="0.4" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
+        android:id="@+id/cancelAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/color4"
         android:fontFamily="@font/josefin_sans_medium"
         android:text="Cancel"
         android:textColor="@color/white"
+        app:cornerRadius="@dimen/buttonCornerRadius"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
         app:layout_constraintVertical_bias="0.4" />
