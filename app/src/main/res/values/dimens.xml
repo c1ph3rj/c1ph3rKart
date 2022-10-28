@@ -65,4 +65,5 @@
     <dimen name="value55dp">55dp</dimen>
     <dimen name="value50dp">50dp</dimen>
     <dimen name="margin48dp">48dp</dimen>
+    <dimen name="value130dp">130dp</dimen>
 </resources>

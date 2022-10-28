@@ -6,14 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".checkoutCart">
 
-    <Button
-        android:id="@+id/button"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="@dimen/CommonWidth"
+        android:layout_height="@dimen/value60dp"
+        android:layout_margin="@dimen/marginValue20dp"
+        android:layout_marginTop="@dimen/marginTop10dp"
+        android:background="@drawable/top_bar"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/headingAtDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/value16dp"
+            android:fontFamily="@font/aclonica_regular"
+            android:shadowColor="@color/white"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="@string/app_name"
+            android:textColor="@color/color4"
+            android:textSize="@dimen/text20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <ImageButton
+            android:id="@+id/SettingsIconCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toEndOf="@+id/headingAtDashboard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529"
+            app:srcCompat="@drawable/ic_baseline_settings_24"
+            app:tint="@color/color4"
+            tools:ignore="ContentDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="@dimen/CommonWidth"
+        android:layout_height="@dimen/height480dp"
+        android:background="@drawable/recycle_viewer_background"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/value8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/loadingScreenC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding10dp">
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+                <include layout="@layout/loading_animation_items" />
+
+
+            </LinearLayout>
+
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cartListViewerC"
+            android:layout_width="match_parent"
+            android:background="@drawable/recycle_viewer_background"
+            android:layout_height="@dimen/height480dp"
+            android:layout_gravity="center"
+            android:padding="@dimen/padding10dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/proceedToBuy"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_height="@dimen/value60dp"
+        android:backgroundTint="@color/color4"
+        android:text="@string/proceed_to_buy_btn_text"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/buttonCornerRadius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.316" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

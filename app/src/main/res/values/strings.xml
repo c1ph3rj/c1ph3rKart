@@ -61,5 +61,6 @@
     <string name="filter_options_text">Filter Options</string>
     <string name="by_discounts_text">By Discounts</string>
     <string name="apply_text">Apply</string>
+    <string name="proceed_to_buy_btn_text">Proceed to Checkout</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -60,16 +60,16 @@ public class Dashboard extends AppCompatActivity {
 
 
     public void onBackPressed(){
-        MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
-        alertDialogBuilder.setTitle("C1ph3R Kart!").setMessage("Do you Want to Logout?").setPositiveButton("No", (dialogInterface, i1) -> {}).setNegativeButton("yes", (dialogInterface, i1) -> {
-            SharedPreferences sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("userName", "");
-            editor.apply();
-            Intent intent = new Intent(this, LoginScreen.class);
-            startActivity(intent);
-            finish();
-        }).show();
+        if(bottomNav.getSelectedItemId() == R.id.dashboardOptions){
+            MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
+            alertDialogBuilder.setTitle("C1ph3R Kart!").setMessage("Do you Want to Exit?").setPositiveButton("No", (dialogInterface, i1) -> {}).setNegativeButton("yes", (dialogInterface, i1) -> {
+                finishAffinity();
+            });
+            alertDialogBuilder.show();
+        }
+        else {
+            bottomNav.setSelectedItemId(R.id.dashboardOptions);
+        }
     }
 
     @Override

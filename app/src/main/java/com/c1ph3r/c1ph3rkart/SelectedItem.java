@@ -24,6 +24,7 @@ import com.c1ph3r.c1ph3rkart.Model.userDetail;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
@@ -117,10 +118,11 @@ public class SelectedItem extends AppCompatActivity {
 
 
             addToCart.setOnClickListener(view -> {
-                if(userName.equals(""))
+                if(userName.equals("")) {
                     localCart();
-                else
-                    SQLiteCart(userName, Cart.toString()," ");
+                }else{
+                    SQLiteCart(userName, Cart.toString(), " ");
+                }
                 Toast.makeText(this, "Successfully added to the cart.", Toast.LENGTH_SHORT).show();
                 dialog.cancel();
 
@@ -136,7 +138,7 @@ public class SelectedItem extends AppCompatActivity {
     private void SQLiteCart(String userName, String cart, String orderDetails) {
         UserDataBaseHelper userDB = new UserDataBaseHelper(this);
         userDetail user =  userDB.getUserData(userName);
-        if(user.getCart()!=null)
+        if(!user.getCart().isEmpty())
             Cart = (JsonArray) JsonParser.parseString(user.getCart());
         String Value =String.valueOf(Math.round(selectedItem.getId()));
         Cart.add(Value);
@@ -151,11 +153,17 @@ public class SelectedItem extends AppCompatActivity {
 
     void localCart(){
         SharedPreferences sharedPreferences = getSharedPreferences("Cart", Context.MODE_PRIVATE);
-        Cart = (JsonArray) JsonParser.parseString(sharedPreferences.getString("Cart", "none"));
-        String Value =String.valueOf( selectedItem.getId());
-        Cart.add(Value);
+        if(!sharedPreferences.getString("Cart", "none").equals("none")) {
+            Cart = JsonParser.parseString(sharedPreferences.getString("Cart", "none")).getAsJsonArray();
+            String Value = String.valueOf(Math.round(selectedItem.getId()));
+            Cart.add(Value);
+        }else{
+            String Value = String.valueOf(Math.round(selectedItem.getId()));
+            Cart.add(Value);
+        }
         SharedPreferences.Editor  editor = sharedPreferences.edit();
         editor.putString("Cart",Cart.toString());
+        System.out.println(Cart.toString());
         editor.apply();
     }
 

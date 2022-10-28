@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.c1ph3r.c1ph3rkart.Model.ProductList;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
@@ -123,13 +124,31 @@ public class ListOfProductsHelper extends SQLiteOpenHelper {
                 String productBrand = product.getString(8);
                 String productDescription = product.getString(9);
                 String[] img = product.getString(7).split("[,]");
-                ArrayList productImages = new ArrayList(Arrays.asList(img));
-                System.out.println(productImages.get(0) + "\n\n\n\n\n\n");
-                productList.add(new ProductList(productName, productCategory, productPrice, productDiscount, productRatings, productThumbnail, productImages, productBrand, productDescription));
+                img[0] = String.valueOf((new StringBuffer(img[0])).deleteCharAt(0));
+                img[img.length-1] = String.valueOf((new StringBuffer(img[img.length-1]).deleteCharAt(img[img.length-1].length()-1)));
+                ArrayList<Object> productImages = new ArrayList<>();
+                for(String image : img)
+                    productImages.add(image.trim());
+                productList.add(new ProductList( productName, productCategory, productPrice, productDiscount, productRatings, productThumbnail, productImages, productBrand, productDescription));
             } while (product.moveToNext());
         }
         product.close();
         return productList;
     }
+
+
+    public ArrayList<ProductList> getProductByID(JsonArray cartItemId) {
+        ArrayList<ProductList> productList = null;
+        productList = new ArrayList<>();
+        ArrayList<ProductList> cartList = new ArrayList<>();
+        for (Object Id : cartItemId) {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor product = db.rawQuery("SELECT * FROM productsDetails WHERE id =?", new String[]{Id.toString().replaceAll("[\"]","")});
+            productList.addAll(addDataToArrayList(product, productList));
+            cartList.add(productList.get(productList.size()-1));
+        }
+        return cartList;
+    }
+
 
 }

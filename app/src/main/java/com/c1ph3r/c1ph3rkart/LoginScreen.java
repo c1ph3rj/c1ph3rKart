@@ -2,6 +2,7 @@ package com.c1ph3r.c1ph3rkart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.c1ph3r.c1ph3rkart.Controller.AuthController;
 import com.c1ph3r.c1ph3rkart.DBHealper.UserDataBaseHelper;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.JsonParser;
 
 public class LoginScreen extends AppCompatActivity {
     TextInputEditText userName, password;
@@ -40,6 +42,13 @@ public class LoginScreen extends AppCompatActivity {
             case 3:
                 Intent intent = new Intent(this, Dashboard.class);
                 startActivity(intent);
+                SharedPreferences Cart = getSharedPreferences("Cart", Context.MODE_PRIVATE);
+                if(!Cart.getString("Cart", "none").equals("none")) {
+                    userDB.updateUserData(String.valueOf(userName.getText()), Cart.getString("Cart", "none"), "");
+                    SharedPreferences.Editor editCart = Cart.edit();
+                    editCart.clear();
+                    editCart.apply();
+                }
                 SharedPreferences sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("userName", String.valueOf(userName.getText()));
@@ -54,7 +63,8 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-
+        Intent intent = new Intent (this , Dashboard.class);
+        startActivity(intent);
     }
 
 }

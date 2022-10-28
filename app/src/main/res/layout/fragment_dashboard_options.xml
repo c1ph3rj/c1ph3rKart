@@ -9,14 +9,18 @@
     android:layout_gravity="center"
     tools:layout_editor_absoluteX="447dp"
     tools:layout_editor_absoluteY="25dp">
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="@dimen/CommonWidth"
         android:layout_height="@dimen/value60dp"
         android:layout_margin="@dimen/marginValue20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/top_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -54,7 +58,6 @@
             app:tint="@color/color4"
             tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <TextView
         android:id="@+id/categoriesText"

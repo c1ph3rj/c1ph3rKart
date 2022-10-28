@@ -82,13 +82,8 @@ public class allProducts extends Fragment implements productOnClick {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_products, container, false);
-    }
+        view = inflater.inflate(R.layout.fragment_all_products, container, false);
 
-    // Works when the fragment is started.
-    public void onStart() {
-        super.onStart();
-        view = getView();
         if(view!= null){
             // Initializing the required Views.
             listOfProducts = new ListOfProductsHelper(requireActivity());
@@ -141,6 +136,13 @@ public class allProducts extends Fragment implements productOnClick {
                 System.out.println("Exception in ALL PRODUCTS");
             }
         });
+        return view;
+    }
+
+    // Works when the fragment is started.
+    public void onStart() {
+        super.onStart();
+
 
     }
 
