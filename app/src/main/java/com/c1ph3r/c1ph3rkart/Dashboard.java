@@ -23,6 +23,7 @@ public class Dashboard extends AppCompatActivity {
         Intent intent = getIntent();
         String value = intent.getStringExtra("DashBoard");
         System.out.println(value);
+        // default fragment.
         Fragment fragment1 = null;
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, new DashboardOptions()).commit();
         if (value == null) {
@@ -33,6 +34,7 @@ public class Dashboard extends AppCompatActivity {
             fragment1 = new checkoutCart();
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard, fragment1).commit();
+        // Bottom navigation button : actions on click.
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
             switch (item.getItemId()) {
@@ -57,7 +59,8 @@ public class Dashboard extends AppCompatActivity {
         });
     }
 
-
+    // On back pressed ask the user to exit the app.
+    // If the dashboard is in other fragment than dashboard option it will come back to the dashboard options fragment
     public void onBackPressed() {
         if (bottomNav.getSelectedItemId() == R.id.dashboardOptions) {
             MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
@@ -71,8 +74,5 @@ public class Dashboard extends AppCompatActivity {
         }
     }
 
-    protected void onResume() {
-        super.onResume();
-    }
 }
 

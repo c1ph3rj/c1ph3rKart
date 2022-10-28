@@ -59,6 +59,9 @@ public class DashboardOptions extends Fragment {
         offers = view.findViewById(R.id.Offers);
         homeDecorations = view.findViewById(R.id.homeDecorationsBtn);
 
+
+        // On Click button forwards to the corresponding page.
+
         smartPhone.setOnClickListener(view12 -> filterData("smartphones"));
 
         laptops.setOnClickListener(view1 -> filterData("laptops"));
