@@ -58,46 +58,121 @@
         app:layout_constraintVertical_bias="0.099">
 
 
-        <TextView
-            android:id="@+id/userDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color4"
-            android:textSize="@dimen/normalTextSize"
-            android:fontFamily="@font/josefin_sans_semi_bold"
-            android:padding="@dimen/padding10dp"
-            android:drawablePadding="@dimen/value4dp"
-            app:drawableTint="@color/color4"
-            android:text="@string/user_details_text"
-            app:drawableStartCompat="@drawable/user_ic" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/width280dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_height="@dimen/height110"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/value16dp"
+            app:cardCornerRadius="@dimen/buttonCornerRadius"
+            app:cardElevation="@dimen/value8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="@color/white"
+                android:id="@+id/layoutForUserDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/userUserName"
+                    android:layout_width="@dimen/width180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/josefin_sans_semi_bold"
+                    android:text="userName"
+                    android:textColor="@color/color4"
+                    android:textSize="@dimen/text20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.24" />
+
+                <TextView
+                    android:id="@+id/userUserEMail"
+                    android:layout_width="@dimen/width180dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/josefin_sans_regular"
+                    android:text="userEmail"
+                    android:textColor="@color/color3"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cardView"
+                    app:layout_constraintHorizontal_bias="0.695"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userUserName"
+                    app:layout_constraintVertical_bias="0.179" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="@dimen/value70dp"
+                    android:layout_height="@dimen/value70dp"
+                    android:layout_margin="@dimen/value8dp"
+                    app:cardBackgroundColor="@color/lightWhite"
+                    app:cardCornerRadius="@dimen/width180dp"
+                    app:cardElevation="@dimen/value8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/userUserName"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="@dimen/value50dp"
+                            android:layout_height="@dimen/value50dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/user_ic" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginToContinue"
+                android:textSize="@dimen/normalTextSize"
+                android:textColor="@color/color4"
+                android:fontFamily="@font/josefin_sans_bold"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_gravity="center"
+                app:cornerRadius="@dimen/buttonCornerRadius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="logIn" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/orderHistory"
             android:layout_width="match_parent"
-            android:textColor="@color/color4"
-            android:textSize="@dimen/normalTextSize"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/value4dp"
             android:fontFamily="@font/josefin_sans_semi_bold"
             android:padding="@dimen/padding10dp"
-            android:drawablePadding="@dimen/value4dp"
-            app:drawableTint="@color/color4"
-            android:layout_height="wrap_content"
             android:text="@string/order_history_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:drawableStartCompat="@drawable/ic_baseline_history_24" />
+            android:textColor="@color/color4"
+            android:textSize="@dimen/normalTextSize"
+            app:drawableStartCompat="@drawable/ic_baseline_history_24"
+            app:drawableTint="@color/color4"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/color4"
-            android:textSize="@dimen/normalTextSize"
+            android:drawablePadding="@dimen/value4dp"
             android:fontFamily="@font/josefin_sans_semi_bold"
             android:padding="@dimen/padding10dp"
-            android:drawablePadding="@dimen/value4dp"
-            app:drawableTint="@color/color4"
             android:text="@string/logout_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:drawableStartCompat="@drawable/ic_baseline_logout_24" />
+            android:textColor="@color/color4"
+            android:textSize="@dimen/normalTextSize"
+            app:drawableStartCompat="@drawable/ic_baseline_logout_24"
+            app:drawableTint="@color/color4"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
 
