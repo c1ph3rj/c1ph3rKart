@@ -84,5 +84,8 @@
     <string name="state">State</string>
     <string name="add_new_address">Add New Address:</string>
     <string name="festival_sale_n_50_off">Festival Sale\n 50% off</string>
+    <string name="useremail">userEmail</string>
+    <string name="username">userName</string>
+    <string name="login">logIn</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
